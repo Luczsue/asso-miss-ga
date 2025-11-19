@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact de l'Association des Miss du Gabon">
+    <title>Contact - Association des Miss du Gabon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="https://via.placeholder.com/50" alt="Logo Miss Gabon" class="logo-img">
+                <span>Miss Gabon</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="about.html" class="nav-link">À propos</a></li>
+                <li><a href="news.html" class="nav-link">Actualités</a></li>
+                <li><a href="partners.html" class="nav-link">Partenaires</a></li>
+                <li><a href="contests.html" class="nav-link">Concours</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero" style="background-image: url('https://via.placeholder.com/1920x400?text=Contact'); min-height: 300px;">
+            <div class="page-hero-overlay"></div>
+            <div class="page-hero-content">
+                <h1 data-aos="fade-up">Nous Contacter</h1>
+                <p data-aos="fade-up" data-aos-delay="100">Avez-vous des questions? Nous sommes là pour vous aider</p>
+            </div>
+        </section>
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <div class="container">
+                <a href="index.html">Accueil</a> / <span>Contact</span>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info" data-aos="fade-right">
+                        <div class="info-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>Localisation</h4>
+                            <p>Libreville, Gabon</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-phone"></i>
+                            <h4>Téléphone</h4>
+                            <p>+241 XX XX XX XX</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email</h4>
+                            <p>contact@missgarbon.ga</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-clock"></i>
+                            <h4>Horaires</h4>
+                            <p>Lun - Ven: 08:00 - 18:00<br>Sam - Dim: Fermé</p>
+                        </div>
+                        <div class="social-media">
+                            <h4>Suivez-nous</h4>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form" data-aos="fade-left">
+                        <h3>Envoyez-nous un Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" placeholder="Votre nom" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Votre email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" placeholder="Votre téléphone">
+                            </div>
+                            <div class="form-group">
+                                <select required>
+                                    <option value="">Sujet du message</option>
+                                    <option value="concours">Inscription concours</option>
+                                    <option value="partenariat">Partenariat</option>
+                                    <option value="question">Question générale</option>
+                                    <option value="media">Demande médias</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Votre message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Envoyer le message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Google Map -->
+                <div class="map-container" data-aos="fade-up">
+                    <h3>Retrouvez-nous</h3>
+                    <p class="map-description">Visitez notre bureau à Libreville pour discuter de partenariats ou d'inscriptions à nos concours</p>
+                    <div id="map"></div>
+                </div>
+
+                <!-- Office Locations -->
+                <div class="office-locations" data-aos="fade-up">
+                    <h3>Nos Bureaux</h3>
+                    <div class="offices-grid">
+                        <div class="office-card">
+                            <h4><i class="fas fa-building"></i> Bureau Principal</h4>
+                            <p><strong>Adresse:</strong> Libreville, Gabon</p>
+                            <p><strong>Téléphone:</strong> +241 XX XX XX XX</p>
+                            <p><strong>Email:</strong> contact@missgarbon.ga</p>
+                        </div>
+                        <div class="office-card">
+                            <h4><i class="fas fa-phone-alt"></i> Support Client</h4>
+                            <p><strong>Téléphone:</strong> +241 XX XX XX XX</p>
+                            <p><strong>Email:</strong> support@missgarbon.ga</p>
+                            <p><strong>Chat:</strong> Disponible 9h-17h</p>
+                        </div>
+                        <div class="office-card">
+                            <h4><i class="fas fa-briefcase"></i> Partenariats</h4>
+                            <p><strong>Email:</strong> partnerships@missgarbon.ga</p>
+                            <p><strong>Téléphone:</strong> +241 XX XX XX XX</p>
+                            <p><strong>Rendez-vous:</strong> Sur demande</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Contact -->
+        <section class="quick-contact-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Besoin d'Aide Rapide ?</h2>
+                    <p class="section-subtitle">Choisissez votre motif de contact</p>
+                </div>
+
+                <div class="quick-contact-grid">
+                    <div class="quick-contact-card" data-aos="zoom-in">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Inscription Concours</h4>
+                        <p>Vous souhaitez participer à l'un de nos concours?</p>
+                        <a href="contests.html" class="link-arrow">Voir les concours →</a>
+                    </div>
+
+                    <div class="quick-contact-card" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Partenariat</h4>
+                        <p>Intéressé par un partenariat avec nous?</p>
+                        <a href="partners.html" class="link-arrow">En savoir plus →</a>
+                    </div>
+
+                    <div class="quick-contact-card" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fas fa-newspaper"></i>
+                        <h4>Médias & Presse</h4>
+                        <p>Vous êtes journaliste ou influenceur?</p>
+                        <a href="#contactForm" class="link-arrow">Nous contacter →</a>
+                    </div>
+
+                    <div class="quick-contact-card" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fas fa-question-circle"></i>
+                        <h4>Questions Générales</h4>
+                        <p>Avez-vous d'autres questions?</p>
+                        <a href="#contactForm" class="link-arrow">Posez votre question →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>À propos</h4>
+                    <p>L'Association des Miss du Gabon promeut l'excellence, la beauté et le talent féminin au Gabon et à l'international.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="news.html">Actualités</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Inscrivez-vous pour rester informé</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email">
+                        <button type="submit">S'inscrire</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Association des Miss du Gabon. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
