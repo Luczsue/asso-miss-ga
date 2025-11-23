@@ -303,6 +303,63 @@ body {
     transform: translateY(-3px);
 }
 
+/* Button icon spacing */
+.hero-buttons .btn i {
+    margin-right: 0.6rem;
+    font-size: 1.05em;
+    vertical-align: middle;
+}
+
+/* ===================== CROWN SPARKLES ===================== */
+.shape::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff8d6 0%, #ffd966 30%, #d4af37 60%, rgba(212,175,55,0) 70%);
+    opacity: 0;
+    transform: scale(0.6) translate(-50%, -50%);
+    pointer-events: none;
+    filter: blur(0.6px);
+    animation: sparkle 3.6s infinite ease-in-out;
+}
+
+.shape-1::after { left: 70%; top: 18%; animation-delay: 0.2s; }
+.shape-2::after { left: 40%; top: 18%; animation-delay: 0.9s; }
+.shape-3::after { left: 60%; top: 32%; animation-delay: 1.5s; }
+
+@keyframes sparkle {
+    0% { opacity: 0; transform: scale(0.4) translate(-50%, -50%); }
+    8% { opacity: 1; transform: scale(1.15) translate(-50%, -50%); }
+    30% { opacity: 0.6; transform: scale(0.95) translate(-50%, -50%); }
+    70% { opacity: 0.3; transform: scale(0.8) translate(-50%, -50%); }
+    100% { opacity: 0; transform: scale(0.6) translate(-50%, -50%); }
+}
+
+/* small secondary twinkle using ::before for variety */
+.shape::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffffff 0%, rgba(255,255,255,0.6) 40%, rgba(212,175,55,0) 70%);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+    animation: twinkle 4.4s infinite ease-in-out;
+}
+.shape-1::before { left: 48%; top: 30%; animation-delay: 0.6s; }
+.shape-2::before { left: 78%; top: 32%; animation-delay: 1.2s; }
+.shape-3::before { left: 32%; top: 50%; animation-delay: 2s; }
+
+@keyframes twinkle {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+    20% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2); }
+    40% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+}
+
 /* Animated shapes */
 .animated-shapes {
     position: absolute;
