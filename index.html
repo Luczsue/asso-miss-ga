@@ -49,9 +49,39 @@
                     </div>
                 </div>
                 <div class="animated-shapes">
-                    <div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
-                    <div class="shape shape-3"></div>
+                    <!-- Crown shapes (inline SVG) -->
+                    <svg class="shape shape-1 crown" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="g1" x1="0%" x2="100%">
+                                <stop offset="0%" stop-color="#ffd966" />
+                                <stop offset="100%" stop-color="#d4af37" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M4 48 L12 16 L24 36 L32 8 L40 36 L52 16 L60 48 Z" fill="url(#g1)" opacity="0.95" />
+                        <circle cx="12" cy="16" r="3" fill="#fff8d6" opacity="0.9" />
+                        <circle cx="32" cy="8" r="3" fill="#fff8d6" opacity="0.9" />
+                        <circle cx="52" cy="16" r="3" fill="#fff8d6" opacity="0.9" />
+                    </svg>
+
+                    <svg class="shape shape-2 crown" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="g2" x1="0%" x2="100%">
+                                <stop offset="0%" stop-color="#fff1b8" />
+                                <stop offset="100%" stop-color="#c9a227" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M6 44 L14 18 L26 34 L32 12 L38 34 L50 18 L58 44 Z" fill="url(#g2)" opacity="0.95" />
+                    </svg>
+
+                    <svg class="shape shape-3 crown" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="g3" x1="0%" x2="100%">
+                                <stop offset="0%" stop-color="#ffd700" />
+                                <stop offset="100%" stop-color="#c79b1e" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M8 46 L16 20 L26 36 L32 10 L38 36 L48 20 L56 46 Z" fill="url(#g3)" opacity="0.95" />
+                    </svg>
                 </div>
             </div>
             <div class="scroll-indicator">

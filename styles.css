@@ -273,6 +273,36 @@ body {
     flex-wrap: wrap;
 }
 
+.hero-buttons .btn {
+    padding: 14px 34px;
+    border-radius: 40px;
+    font-size: 1rem;
+    letter-spacing: 1.2px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.hero-buttons .btn-primary {
+    background: linear-gradient(90deg, #ffd966, #d4af37);
+    color: #111;
+    border: none;
+}
+
+.hero-buttons .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(212,175,55,0.9);
+}
+
+.hero-buttons .btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 36px rgba(212,175,55,0.28);
+}
+
+.hero-buttons .btn-secondary:hover {
+    background: rgba(212,175,55,0.12);
+    transform: translateY(-3px);
+}
+
 /* Animated shapes */
 .animated-shapes {
     position: absolute;
@@ -285,37 +315,18 @@ body {
 
 .shape {
     position: absolute;
-    opacity: 0.1;
+    opacity: 0.95;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
+    transform-origin: center;
 }
 
-.shape-1 {
-    width: 300px;
-    height: 300px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    top: 10%;
-    left: 5%;
-    animation: float 6s ease-in-out infinite;
-}
+.shape.crown { will-change: transform, opacity; }
 
-.shape-2 {
-    width: 200px;
-    height: 200px;
-    background: var(--accent-color);
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    bottom: 10%;
-    right: 10%;
-    animation: float 8s ease-in-out infinite reverse;
-}
+.shape-1 { width: 260px; height: 260px; top: 6%; left: 4%; animation: float 7s ease-in-out infinite; }
+.shape-2 { width: 200px; height: 200px; bottom: 12%; right: 8%; animation: float 9s ease-in-out infinite reverse; }
+.shape-3 { width: 160px; height: 160px; bottom: 18%; left: 18%; animation: float 8s ease-in-out infinite; }
 
-.shape-3 {
-    width: 150px;
-    height: 150px;
-    background: var(--primary-color);
-    bottom: 20%;
-    left: 20%;
-    animation: float 7s ease-in-out infinite;
-}
+.shape svg, .shape path { width:100%; height:100%; }
 
 .scroll-indicator {
     position: absolute;
