@@ -1,305 +1,290 @@
-// ===================== ANIMATION DÉFILÉ DE MODE - SILHOUETTE FEMME =====================
+// ===================== ANIMATION AVANCÉE — SILHOUETTE QUI VIENT VERS LE VISITEUR =====================
 
-class FashionShowAnimation {
+class EnhancedFashionShow {
     constructor() {
         this.canvas = document.getElementById('fashionShowCanvas');
         this.ctx = this.canvas.getContext('2d');
-        this.animationId = null;
-        this.isAnimating = false;
-        
-        // Colorimétrie du logo : Or/Jaune doré + Noir + Fonds sombre
+        this.width = 0;
+        this.height = 0;
+        this.req = null;
+        this.running = false;
+
+        // Palette basée sur le logo
         this.colors = {
             gold: '#d4af37',
             darkGold: '#c9a227',
             brightGold: '#ffd700',
-            black: '#1a1a1a',
-            darkBg: '#0a0a0a',
-            white: '#ffffff'
+            black: '#0a0a0a',
+            deep: '#111'
         };
-        
-        this.silhouette = {
-            x: 0,
-            y: 0,
-            progress: 0,
-            speed: 2
+
+        // timeline
+        this.duration = 4800; // ms
+        this.startTime = 0;
+
+        // particles (flashes)
+        this.particles = [];
+
+        // load silhouette image (SVG simplified silhouette)
+        this.silhouette = new Image();
+        this.silhouette.src = 'silhouette.svg';
+        this.silhouetteLoaded = false;
+        this.silhouette.onload = () => { this.silhouetteLoaded = true; };
+
+        // load logo image for finale
+        this.logoImg = new Image();
+        this.logoImg.src = 'logo.svg';
+
+        this.setup();
+        this.installListeners();
+    }
+
+    setup() {
+        const resize = () => {
+            this.width = window.innerWidth;
+            this.height = Math.round(window.innerHeight * 0.78);
+            this.canvas.width = this.width;
+            this.canvas.height = this.height;
         };
-        
-        this.flashParticles = [];
-        
-        this.setupCanvas();
-        this.addScrollListener();
+        resize();
+        window.addEventListener('resize', resize);
     }
-    
-    setupCanvas() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight * 0.8;
-        
-        window.addEventListener('resize', () => {
-            this.canvas.width = window.innerWidth;
-            this.canvas.height = window.innerHeight * 0.8;
-        });
-    }
-    
-    addScrollListener() {
-        let lastScrollY = window.scrollY;
-        
+
+    installListeners() {
+        // restart when user scrolls back to top
+        let lastY = window.scrollY;
         window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            
-            // Si on revient vers le haut (près de la section hero)
-            if (currentScrollY < 100 && lastScrollY > 100) {
-                // Utilisateur est revenu en haut
-                if (!this.isAnimating) {
-                    this.startAnimation();
-                }
+            const y = window.scrollY;
+            if (y < 100 && lastY > 100) {
+                this.start();
             }
-            
-            lastScrollY = currentScrollY;
+            lastY = y;
         });
     }
-    
-    startAnimation() {
-        this.isAnimating = true;
-        this.silhouette.progress = 0;
-        this.flashParticles = [];
-        
-        // Démarrer l'animation au chargement de la page
-        this.animate();
-        
-        // Arrêter après 5 secondes
+
+    start() {
+        if (this.running) return;
+        this.running = true;
+        this.startTime = performance.now();
+        this.particles = [];
+        this.loop(this.startTime);
+
+        // auto-stop after duration + small buffer
         setTimeout(() => {
-            this.stopAnimation();
-        }, 5000);
+            this.running = false;
+        }, this.duration + 500);
     }
-    
-    stopAnimation() {
-        this.isAnimating = false;
-        if (this.animationId) {
-            cancelAnimationFrame(this.animationId);
+
+    stop() {
+        if (this.req) cancelAnimationFrame(this.req);
+        this.req = null;
+        this.running = false;
+        // keep the final logo on screen for a moment
+    }
+
+    easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+    easeInOutSine(t) { return -(Math.cos(Math.PI * t) - 1) / 2; }
+
+    addFlashburst(x, y, count = 12) {
+        for (let i = 0; i < count; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = 2 + Math.random() * 6;
+            this.particles.push({
+                x: x,
+                y: y,
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed,
+                life: 30 + Math.round(Math.random() * 30),
+                maxLife: 60,
+                size: 3 + Math.random() * 6,
+                color: Math.random() > 0.6 ? this.colors.brightGold : '#ffffff'
+            });
         }
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
-    
-    drawBackground() {
-        // Dégradé de fond sombre
-        const gradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height);
-        gradient.addColorStop(0, '#0a0a0a');
-        gradient.addColorStop(1, '#1a1a1a');
-        
-        this.ctx.fillStyle = gradient;
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+    updateParticles() {
+        this.particles = this.particles.filter(p => p.life > 0);
+        for (let p of this.particles) {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vx *= 0.98;
+            p.vy *= 0.98;
+            p.life--;
+        }
     }
-    
-    drawSilhouette(x, y) {
+
+    drawRunway() {
+        // perspective runway
+        const g = this.ctx.createLinearGradient(0, this.height * 0.2, 0, this.height);
+        g.addColorStop(0, this.colors.deep);
+        g.addColorStop(1, this.colors.black);
+        this.ctx.fillStyle = g;
+        this.ctx.fillRect(0, 0, this.width, this.height);
+
+        // subtle reflective runway stripe
+        const stripeHeight = 40;
+        const stripeG = this.ctx.createLinearGradient(0, this.height * 0.5, 0, this.height);
+        stripeG.addColorStop(0, 'rgba(212,175,55,0.04)');
+        stripeG.addColorStop(1, 'rgba(212,175,55,0)');
+        this.ctx.fillStyle = stripeG;
+        const centerX = this.width / 2;
+        this.ctx.beginPath();
+        this.ctx.ellipse(centerX, this.height * 0.7, this.width * 0.3, stripeHeight, 0, 0, Math.PI * 2);
+        this.ctx.fill();
+    }
+
+    drawSpotlight(x, y, scale) {
+        const r = Math.max(this.width, this.height) * 0.6 * scale;
+        const grad = this.ctx.createRadialGradient(x, y - 40, r * 0.05, x, y - 40, r);
+        grad.addColorStop(0, 'rgba(255,244,200,0.22)');
+        grad.addColorStop(0.4, 'rgba(255,244,200,0.06)');
+        grad.addColorStop(1, 'rgba(0,0,0,0)');
+        this.ctx.fillStyle = grad;
+        this.ctx.fillRect(0, 0, this.width, this.height);
+    }
+
+    drawSilhouetteScaled(x, y, scale, rotation = 0) {
+        if (!this.silhouetteLoaded) return;
+        const baseW = Math.min(420, this.width * 0.5);
+        const baseH = baseW * 1.6;
+        const w = baseW * scale;
+        const h = baseH * scale;
+
         this.ctx.save();
         this.ctx.translate(x, y);
-        
-        // Silhouette de femme en profil (défilé de mode)
-        // Utilisation de dégradés or/jaune doré
-        
-        // Tête
+        this.ctx.rotate(rotation);
+
+        // subtle shadow/blur under feet
+        this.ctx.globalCompositeOperation = 'destination-over';
+        this.ctx.fillStyle = 'rgba(0,0,0,0.25)';
+        this.ctx.beginPath();
+        this.ctx.ellipse(0, h * 0.48, w * 0.32, h * 0.08, 0, 0, Math.PI * 2);
+        this.ctx.fill();
+        this.ctx.globalCompositeOperation = 'source-over';
+
+        // draw silhouette image, tint with gold using multiply
+        // draw the silhouette in black first, then overlay gold highlight
+        this.ctx.drawImage(this.silhouette, -w / 2, -h, w, h);
+
+        // gold rim
+        this.ctx.globalCompositeOperation = 'lighter';
+        this.ctx.globalAlpha = 0.22;
         this.ctx.fillStyle = this.colors.gold;
         this.ctx.beginPath();
-        this.ctx.arc(0, -30, 12, 0, Math.PI * 2);
+        this.ctx.ellipse(0, -h * 0.12, w * 0.42, h * 0.18, 0, 0, Math.PI * 2);
         this.ctx.fill();
-        
-        // Cheveux/Couronne
-        this.ctx.fillStyle = this.colors.brightGold;
-        this.ctx.beginPath();
-        this.ctx.arc(0, -30, 14, 0, Math.PI);
-        this.ctx.fill();
-        
-        // Points de couronne (petits joyaux)
-        this.ctx.fillStyle = this.colors.darkGold;
-        for (let i = -2; i <= 2; i++) {
-            this.ctx.beginPath();
-            this.ctx.arc(i * 8, -42, 3, 0, Math.PI * 2);
-            this.ctx.fill();
-        }
-        
-        // Cou
-        this.ctx.fillStyle = this.colors.gold;
-        this.ctx.fillRect(-6, -15, 12, 8);
-        
-        // Buste avec dégradé
-        const bustGradient = this.ctx.createLinearGradient(-15, -10, 15, 30);
-        bustGradient.addColorStop(0, this.colors.brightGold);
-        bustGradient.addColorStop(0.5, this.colors.gold);
-        bustGradient.addColorStop(1, this.colors.darkGold);
-        this.ctx.fillStyle = bustGradient;
-        
-        this.ctx.beginPath();
-        this.ctx.moveTo(-12, -10);
-        this.ctx.lineTo(12, -10);
-        this.ctx.lineTo(15, 25);
-        this.ctx.lineTo(-15, 25);
-        this.ctx.closePath();
-        this.ctx.fill();
-        
-        // Bras droit (levé légèrement pour le défilé)
-        this.ctx.fillStyle = this.colors.gold;
-        this.ctx.beginPath();
-        this.ctx.moveTo(12, 0);
-        this.ctx.lineTo(25, -15);
-        this.ctx.lineTo(26, -5);
-        this.ctx.lineTo(12, 8);
-        this.ctx.closePath();
-        this.ctx.fill();
-        
-        // Bras gauche
-        this.ctx.fillStyle = this.colors.darkGold;
-        this.ctx.beginPath();
-        this.ctx.moveTo(-12, 0);
-        this.ctx.lineTo(-22, 5);
-        this.ctx.lineTo(-20, 12);
-        this.ctx.lineTo(-12, 8);
-        this.ctx.closePath();
-        this.ctx.fill();
-        
-        // Jupe/Robe longue
-        const robeGradient = this.ctx.createLinearGradient(-20, 25, 20, 60);
-        robeGradient.addColorStop(0, this.colors.brightGold);
-        robeGradient.addColorStop(0.5, this.colors.gold);
-        robeGradient.addColorStop(1, this.colors.darkGold);
-        this.ctx.fillStyle = robeGradient;
-        
-        this.ctx.beginPath();
-        this.ctx.moveTo(-15, 25);
-        this.ctx.lineTo(15, 25);
-        this.ctx.lineTo(18, 60);
-        this.ctx.lineTo(-18, 60);
-        this.ctx.closePath();
-        this.ctx.fill();
-        
-        // Détails de robe (rayures)
-        this.ctx.strokeStyle = this.colors.darkGold;
-        this.ctx.lineWidth = 1;
-        this.ctx.beginPath();
-        this.ctx.moveTo(-8, 30);
-        this.ctx.lineTo(-6, 60);
-        this.ctx.stroke();
-        this.ctx.beginPath();
-        this.ctx.moveTo(0, 30);
-        this.ctx.lineTo(0, 60);
-        this.ctx.stroke();
-        this.ctx.beginPath();
-        this.ctx.moveTo(8, 30);
-        this.ctx.lineTo(6, 60);
-        this.ctx.stroke();
-        
-        // Jambes
-        this.ctx.fillStyle = this.colors.gold;
-        this.ctx.fillRect(-5, 60, 4, 25);
-        this.ctx.fillRect(1, 60, 4, 25);
-        
-        // Chaussures
-        this.ctx.fillStyle = this.colors.darkGold;
-        this.ctx.fillRect(-6, 85, 6, 5);
-        this.ctx.fillRect(0, 85, 6, 5);
-        
+        this.ctx.globalAlpha = 1;
+        this.ctx.globalCompositeOperation = 'source-over';
+
         this.ctx.restore();
     }
-    
-    drawFlashes() {
-        // Dessiner les particules de flash
-        this.flashParticles = this.flashParticles.filter(particle => particle.life > 0);
-        
-        for (let particle of this.flashParticles) {
+
+    drawParticles() {
+        for (let p of this.particles) {
+            const alpha = Math.max(0, p.life / p.maxLife);
             this.ctx.save();
-            this.ctx.globalAlpha = particle.life / particle.maxLife;
-            
-            // Flash blanc/or
-            this.ctx.fillStyle = particle.color;
-            this.ctx.shadowColor = particle.color;
-            this.ctx.shadowBlur = 20;
-            
+            this.ctx.globalAlpha = alpha;
+            this.ctx.fillStyle = p.color;
+            this.ctx.shadowColor = p.color;
+            this.ctx.shadowBlur = 14 * alpha;
             this.ctx.beginPath();
-            this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             this.ctx.fill();
-            
             this.ctx.restore();
-            
-            particle.life--;
-            particle.radius += 0.5;
         }
     }
-    
-    addFlash(x, y) {
-        // Ajouter un flash à une position
-        const flash = {
-            x: x + Math.random() * 40 - 20,
-            y: y + Math.random() * 40 - 20,
-            radius: 5,
-            maxLife: 30,
-            life: 30,
-            color: Math.random() > 0.5 ? this.colors.brightGold : this.colors.white
-        };
-        this.flashParticles.push(flash);
+
+    drawLogoFinal(progress) {
+        // progress 0..1
+        const g = Math.min(1, progress);
+        const logoMax = Math.min(this.width, 300);
+        const size = 60 + logoMax * g;
+        const x = this.width / 2;
+        const y = this.height * 0.45;
+
+        this.ctx.save();
+        this.ctx.globalAlpha = g;
+        // subtle glow
+        this.ctx.shadowColor = this.colors.gold;
+        this.ctx.shadowBlur = 40 * g;
+        this.ctx.drawImage(this.logoImg, x - size / 2, y - size / 2, size, size);
+        this.ctx.restore();
     }
-    
-    animate() {
-        if (!this.isAnimating) return;
-        
-        this.drawBackground();
-        
-        // Mise à jour de la position de la silhouette
-        this.silhouette.progress += this.silhouette.speed;
-        
-        // X progresse de gauche à droite
-        const silhouetteX = (this.silhouette.progress / 100) * this.canvas.width;
-        const silhouetteY = this.canvas.height / 2;
-        
-        // Dessiner la silhouette
-        this.drawSilhouette(silhouetteX, silhouetteY);
-        
-        // Ajouter des flashes aux moments clés (photograves)
-        if (Math.floor(this.silhouette.progress) % 15 === 0 && Math.random() > 0.6) {
-            this.addFlash(silhouetteX, silhouetteY);
+
+    loop(now) {
+        if (!this.running) {
+            // keep final frame with logo visible for a moment
+            this.drawFinalState();
+            return;
         }
-        
-        // Dessiner les flashes
-        this.drawFlashes();
-        
-        // Au 70% de l'animation, commencer à faire monter le logo
-        if (this.silhouette.progress >= 70) {
-            const logoProgress = (this.silhouette.progress - 70) / 30;
-            this.drawFinalLogo(logoProgress);
+
+        const elapsed = now - this.startTime;
+        const t = Math.min(1, Math.max(0, elapsed / this.duration));
+        const ease = this.easeOutCubic(t);
+
+        // clear
+        this.ctx.clearRect(0, 0, this.width, this.height);
+
+        // background / runway
+        this.drawRunway();
+
+        // silhouette motion: comes towards viewer: scale from small -> large
+        // start behind (small) and approach center
+        const scale = 0.35 + (1.6 - 0.35) * ease; // comes closer
+        const centerX = this.width / 2 + Math.sin(t * Math.PI * 2) * 8; // tiny sway
+        const baseY = this.height * 0.75;
+        const y = baseY - 220 * ease; // move up slightly as it approaches
+
+        // spotlight centered on silhouette
+        const spotScale = 0.6 + 0.8 * ease;
+        this.drawSpotlight(centerX, y, spotScale);
+
+        // draw silhouette (front-facing) scaled
+        this.drawSilhouetteScaled(centerX, y, scale, Math.sin(ease * Math.PI) * 0.02);
+
+        // add flashes at rhythmic intervals
+        if (Math.random() < 0.08 + 0.6 * ease) {
+            // flash near silhouette
+            this.addFlashburst(centerX + (Math.random() - 0.5) * 80, y - 40, 6 + Math.round(Math.random() * 10));
         }
-        
-        // Continuer l'animation
-        if (this.silhouette.progress < 100) {
-            this.animationId = requestAnimationFrame(() => this.animate());
-        } else {
-            // Animation terminée
-            setTimeout(() => {
-                this.stopAnimation();
-            }, 500);
+
+        // update and draw particles
+        this.updateParticles();
+        this.drawParticles();
+
+        // logo finale appears near the end
+        if (t > 0.72) {
+            const p = (t - 0.72) / (1 - 0.72);
+            this.drawLogoFinal(this.easeInOutSine(p));
         }
+
+        if (t >= 1) {
+            // finish
+            this.running = false;
+            // keep final display for a moment
+            setTimeout(() => { /* nothing */ }, 400);
+        }
+
+        this.req = requestAnimationFrame((ts) => this.loop(ts));
     }
-    
-    drawFinalLogo(progress) {
-        // Dessiner le logo final qui apparaît progressivement
-        const logoImg = new Image();
-        logoImg.src = 'logo.svg';
-        
-        logoImg.onload = () => {
-            const logoX = this.canvas.width / 2 - 50;
-            const logoY = this.canvas.height / 2 - 50;
-            
-            this.ctx.save();
-            this.ctx.globalAlpha = Math.min(progress, 1);
-            this.ctx.drawImage(logoImg, logoX, logoY, 100, 100);
-            this.ctx.restore();
-        };
+
+    drawFinalState() {
+        // Draw last frame with logo visible
+        this.ctx.clearRect(0, 0, this.width, this.height);
+        this.drawRunway();
+        this.drawLogoFinal(1);
     }
 }
 
-// Initialiser l'animation quand le DOM est chargé
 document.addEventListener('DOMContentLoaded', () => {
-    const animation = new FashionShowAnimation();
-    
-    // Démarrer l'animation au chargement de la page
-    setTimeout(() => {
-        animation.startAnimation();
-    }, 500);
+    const enhanced = new EnhancedFashionShow();
+    // start once silhouette loaded or after a short delay
+    const tryStart = () => {
+        if (enhanced.silhouetteLoaded) {
+            enhanced.start();
+        } else {
+            setTimeout(tryStart, 200);
+        }
+    };
+    tryStart();
 });
