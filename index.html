@@ -13,7 +13,7 @@
     <header class="navbar">
         <div class="navbar-container">
             <div class="navbar-logo">
-                <img src="https://via.placeholder.com/50" alt="Logo Miss Gabon" class="logo-img">
+                <img src="logo.svg" alt="Logo Miss Gabon" class="logo-img logo-circular">
                 <span>Miss Gabon</span>
             </div>
             <div class="hamburger" id="hamburger">
@@ -33,6 +33,9 @@
     </header>
 
     <main>
+        <!-- ANIMATION CANVAS - SILHOUETTE FEMME DÉFILÉ -->
+        <canvas id="fashionShowCanvas" class="fashion-show-canvas"></canvas>
+
         <!-- SECTION 1: ACCUEIL - HERO -->
         <section id="accueil" class="hero">
             <div class="parallax-container">
@@ -294,6 +297,7 @@
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="fashion-animation.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

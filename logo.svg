@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 650" width="500" height="650">
+  <!-- Fond noir -->
+  <rect width="500" height="650" fill="#0a0a0a"/>
+  
+  <!-- Couronne dorée (haut du logo) -->
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffed4e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4af37;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c9a227;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Couronne principale -->
+  <path d="M 150 80 L 180 20 L 200 60 L 230 10 L 260 70 L 290 15 L 320 75 L 280 100 L 250 90 L 220 100 Z" fill="url(#goldGradient)" stroke="#c9a227" stroke-width="2"/>
+  
+  <!-- Points brillants de la couronne -->
+  <circle cx="180" cy="15" r="8" fill="#ffed4e"/>
+  <circle cx="230" cy="5" r="8" fill="#ffed4e"/>
+  <circle cx="290" cy="10" r="8" fill="#ffed4e"/>
+  <circle cx="260" cy="65" r="6" fill="#ffed4e"/>
+  
+  <!-- Silhouette de femme de profil -->
+  <!-- Tête -->
+  <circle cx="200" cy="140" r="35" fill="url(#goldGradient)"/>
+  
+  <!-- Profil du visage (noir/ombre) -->
+  <path d="M 220 120 Q 235 130 235 150 Q 235 170 220 180 L 220 120" fill="#1a1a1a" opacity="0.8"/>
+  
+  <!-- Cou -->
+  <rect x="190" y="170" width="25" height="30" fill="url(#goldGradient)"/>
+  
+  <!-- Buste/Corps (forme triangulaire de robe) -->
+  <path d="M 160 200 L 240 200 L 270 380 L 130 380 Z" fill="url(#goldGradient)" stroke="#c9a227" stroke-width="2"/>
+  
+  <!-- Détails du buste -->
+  <path d="M 200 200 L 200 380" stroke="#c9a227" stroke-width="2" opacity="0.6"/>
+  <path d="M 175 250 L 170 380" stroke="#c9a227" stroke-width="1.5" opacity="0.5"/>
+  <path d="M 225 250 L 230 380" stroke="#c9a227" stroke-width="1.5" opacity="0.5"/>
+  
+  <!-- Bras droit -->
+  <path d="M 240 210 Q 300 190 320 220" stroke="url(#goldGradient2)" stroke-width="20" fill="none" stroke-linecap="round"/>
+  
+  <!-- Main droite -->
+  <circle cx="320" cy="220" r="12" fill="url(#goldGradient)"/>
+  
+  <!-- Bras gauche -->
+  <path d="M 160 210 Q 100 200 80 240" stroke="url(#goldGradient2)" stroke-width="20" fill="none" stroke-linecap="round"/>
+  
+  <!-- Main gauche -->
+  <circle cx="80" cy="240" r="12" fill="url(#goldGradient)"/>
+  
+  <!-- Jambes -->
+  <rect x="165" y="380" width="15" height="80" fill="url(#goldGradient)"/>
+  <rect x="220" y="380" width="15" height="80" fill="url(#goldGradient)"/>
+  
+  <!-- Chaussures -->
+  <ellipse cx="172" cy="465" rx="12" ry="8" fill="#c9a227"/>
+  <ellipse cx="227" cy="465" rx="12" ry="8" fill="#c9a227"/>
+  
+  <!-- Lettre "G" stylisée à droite -->
+  <g transform="translate(320, 200)">
+    <path d="M 40 10 L 70 10 L 70 50 L 40 50 Q 20 50 20 30 Q 20 10 40 10" fill="none" stroke="url(#goldGradient)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="50" y1="30" x2="70" y2="30" stroke="url(#goldGradient)" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Texte "ASSOCIATION DES MISS DU GABON" -->
+  <text x="250" y="520" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#goldGradient)" text-anchor="middle">ASSOCIATION DES</text>
+  <text x="250" y="555" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="url(#goldGradient)" text-anchor="middle">MISS DU GABON</text>
+</svg>

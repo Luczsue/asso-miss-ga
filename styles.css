@@ -37,6 +37,29 @@ body {
     padding: 0 2rem;
 }
 
+/* ===================== CANVAS ANIMATION ===================== */
+.fashion-show-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    position: relative;
+    z-index: 10;
+}
+
+/* ===================== LOGO STYLE ===================== */
+.logo-circular {
+    border-radius: 50% !important;
+    border: 3px solid var(--primary-color);
+    padding: 2px;
+    transition: var(--transition);
+}
+
+.logo-circular:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
 /* ===================== BOUTONS ===================== */
 .btn {
     padding: 12px 30px;
