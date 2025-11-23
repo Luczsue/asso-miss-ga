@@ -18,8 +18,8 @@ class EnhancedFashionShow {
             deep: '#111'
         };
 
-        // timeline
-        this.duration = 4800; // ms
+        // timeline (plus lent pour une approche plus élégante)
+        this.duration = 9000; // ms
         this.startTime = 0;
 
         // particles (flashes)
@@ -220,7 +220,8 @@ class EnhancedFashionShow {
 
         const elapsed = now - this.startTime;
         const t = Math.min(1, Math.max(0, elapsed / this.duration));
-        const ease = this.easeOutCubic(t);
+        // easing plus doux pour une approche élégante
+        const ease = this.easeInOutSine(t);
 
         // clear
         this.ctx.clearRect(0, 0, this.width, this.height);
@@ -230,10 +231,10 @@ class EnhancedFashionShow {
 
         // silhouette motion: comes towards viewer: scale from small -> large
         // start behind (small) and approach center
-        const scale = 0.35 + (1.6 - 0.35) * ease; // comes closer
-        const centerX = this.width / 2 + Math.sin(t * Math.PI * 2) * 8; // tiny sway
-        const baseY = this.height * 0.75;
-        const y = baseY - 220 * ease; // move up slightly as it approaches
+        const scale = 0.32 + (1.55 - 0.32) * ease; // comes closer (smoother range)
+        const centerX = this.width / 2 + Math.sin(t * Math.PI * 2) * 6; // smaller sway
+        const baseY = this.height * 0.78;
+        const y = baseY - 160 * ease; // more subtle vertical move
 
         // spotlight centered on silhouette
         const spotScale = 0.6 + 0.8 * ease;
@@ -243,9 +244,10 @@ class EnhancedFashionShow {
         this.drawSilhouetteScaled(centerX, y, scale, Math.sin(ease * Math.PI) * 0.02);
 
         // add flashes at rhythmic intervals
-        if (Math.random() < 0.08 + 0.6 * ease) {
-            // flash near silhouette
-            this.addFlashburst(centerX + (Math.random() - 0.5) * 80, y - 40, 6 + Math.round(Math.random() * 10));
+        // flashes: moins fréquents au départ, plus présents en fin
+        if (Math.random() < 0.03 + 0.45 * ease) {
+            // flash near silhouette (count moderé)
+            this.addFlashburst(centerX + (Math.random() - 0.5) * 60, y - 40, 4 + Math.round(Math.random() * 6));
         }
 
         // update and draw particles
