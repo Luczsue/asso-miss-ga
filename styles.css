@@ -252,10 +252,11 @@ body {
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background: linear-gradient(135deg, var(--primary-color), #ff6b9d);
+    background: linear-gradient(90deg, #ffd966, #d4af37);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 8px 28px rgba(212,175,55,0.15);
 }
 
 .hero-subtitle {
