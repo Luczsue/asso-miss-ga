@@ -26,8 +26,8 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--text-dark);
-    background: var(--light-bg);
+    color: white;
+    background-color: #121212;
     overflow-x: hidden;
 }
 
@@ -111,7 +111,7 @@ body {
 /* ===================== NAVBAR ===================== */
 .navbar {
     background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(0.5px);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -140,8 +140,8 @@ body {
 }
 
 .logo-img {
-    width: 40px;
-    height: 40px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     border: 2px solid var(--primary-color);
 }
@@ -1341,6 +1341,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 800;
+    color: rgba(216, 176, 43, 0.9);
+    margin-top: 60px; 
 }
 
 .page-hero-content p {
