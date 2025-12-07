@@ -6,6 +6,7 @@
     <meta name="description" content="Association des Miss du Gabon - Plateforme officielle">
     <title>Association des Miss du Gabon - Accueil</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/campana-script-personal-use" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="logo.jpg" type="image/jpeg">
 </head>
@@ -13,10 +14,6 @@
     <!-- Navigation -->
     <header class="navbar">
         <div class="navbar-container">
-            <div class="navbar-logo">
-                <img src="logo.jpg" alt="Logo Miss Gabon" class="logo-img logo-circular" width="56" height="56">
-                <span>Miss Gabon</span>
-            </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -30,63 +27,89 @@
                 <li><a href="contests.html" class="nav-link">Concours</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <div class="navbar-logo">
+                <img src="images/logo-asso.png" alt="Logo Association des Miss du Gabon" class="logo-img" width="60" height="60">
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- SECTION 1: ACCUEIL - HERO -->
-        <section id="accueil" class="hero">
-            <div class="parallax-container">
-                <div class="parallax-bg" style="background-image: url('https://via.placeholder.com/1920x1080?text=Miss+Gabon+2025')"></div>
-            </div>
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title" data-aos="fade-up">Association des Miss du Gabon</h1>
-                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Découvrez l'excellence, la beauté et le talent</p>
-                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-                        <a href="about.html" class="btn btn-primary"><i class="fas fa-eye"></i>Découvrir</a>
-                        <a href="contact.html" class="btn btn-secondary"><i class="fas fa-envelope"></i>Nous contacter</a>
+        <!-- SECTION 1: ACCUEIL - HERO (diaporama des Miss) -->
+        <section id="accueil" class="hero hero-slideshow-section">
+            <div class="hero-inner container">
+                <div class="hero-images">
+                    <div class="hero-slideshow" id="heroSlideshow">
+                        <!-- Les images doivent être placées dans `images/` et nommées miss1.jpg ... miss6.jpg -->
+                        <!-- Utilisation de data-src pour lazy-loading; le script charge les images avant affichage -->
+                        <div class="slide" data-index="1"><img data-src="images/miss1.jpg" alt="Miss 1" loading="lazy"></div>
+                        <div class="slide" data-index="2"><img data-src="images/miss2.jpg" alt="Miss 2" loading="lazy"></div>
+                        <div class="slide" data-index="3"><img data-src="images/miss3.jpg" alt="Miss 3" loading="lazy"></div>
+                        <div class="slide" data-index="4"><img data-src="images/miss4.jpg" alt="Miss 4" loading="lazy"></div>
+                        <div class="slide" data-index="5"><img data-src="images/miss5.jpg" alt="Miss 5" loading="lazy"></div>
+                        <div class="slide" data-index="6"><img data-src="images/miss6.jpg" alt="Miss 6" loading="lazy"></div>
+
+                        <!-- controls -->
+                        <button class="slideshow-control prev" aria-label="Précédent">‹</button>
+                        <button class="slideshow-control next" aria-label="Suivant">›</button>
+
+                        <!-- pagination dots -->
+                        <div class="slideshow-dots" id="slideshowDots" aria-hidden="false"></div>
                     </div>
                 </div>
-                <div class="animated-shapes">
-                    <!-- Crown shapes (inline SVG) -->
-                    <svg class="shape shape-1 crown" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="g1" x1="0%" x2="100%">
-                                <stop offset="0%" stop-color="#ffd966" />
-                                <stop offset="100%" stop-color="#d4af37" />
-                            </linearGradient>
-                        </defs>
-                        <path d="M4 48 L12 16 L24 36 L32 8 L40 36 L52 16 L60 48 Z" fill="url(#g1)" opacity="0.95" />
-                        <circle cx="12" cy="16" r="3" fill="#fff8d6" opacity="0.9" />
-                        <circle cx="32" cy="8" r="3" fill="#fff8d6" opacity="0.9" />
-                        <circle cx="52" cy="16" r="3" fill="#fff8d6" opacity="0.9" />
-                    </svg>
 
-                    <svg class="shape shape-2 crown" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="g2" x1="0%" x2="100%">
-                                <stop offset="0%" stop-color="#fff1b8" />
-                                <stop offset="100%" stop-color="#c9a227" />
-                            </linearGradient>
-                        </defs>
-                        <path d="M6 44 L14 18 L26 34 L32 12 L38 34 L50 18 L58 44 Z" fill="url(#g2)" opacity="0.95" />
-                    </svg>
+                <div class="hero-text">
+                    <div class="hero-text-inner">
+                        <!-- Animated country shape background -->
+                        <div class="gabon-shape-bg">
+                            <svg viewBox="0 0 100 150" preserveAspectRatio="xMidYMid meet" class="gabon-silhouette">
+                                <!-- Simplified Gabon outline -->
+                                <path d="M50,10 L70,20 L75,40 L80,60 L75,80 L70,90 L60,95 L50,100 L40,95 L30,90 L25,80 L20,60 L25,40 L30,20 Z" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.15"/>
+                                <!-- Decorative circles at key positions -->
+                                <circle cx="50" cy="50" r="2" fill="currentColor" opacity="0.1" class="gabon-marker"/>
+                                <circle cx="65" cy="35" r="1.5" fill="currentColor" opacity="0.08" class="gabon-marker-small"/>
+                                <circle cx="35" cy="60" r="1.5" fill="currentColor" opacity="0.08" class="gabon-marker-small"/>
+                            </svg>
+                        </div>
 
-                    <svg class="shape shape-3 crown" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="g3" x1="0%" x2="100%">
-                                <stop offset="0%" stop-color="#ffd700" />
-                                <stop offset="100%" stop-color="#c79b1e" />
-                            </linearGradient>
-                        </defs>
-                        <path d="M8 46 L16 20 L26 36 L32 10 L38 36 L48 20 L56 46 Z" fill="url(#g3)" opacity="0.95" />
-                    </svg>
+                        <div class="hero-content-wrapper">
+                            <!-- Flag badge -->
+                            <div class="flag-badge">
+                                <span class="flag-stripe" style="background: #009E49;"></span>
+                                <span class="flag-stripe" style="background: #FEDD00;"></span>
+                                <span class="flag-stripe" style="background: #0033A0;"></span>
+                            </div>
+
+                            <h1 class="hero-heading">Association des Miss du Gabon</h1>
+                            
+                            <!-- Gabon badges -->
+                            <div class="gabon-badges">
+                                <span class="badge badge-gabon">🇬🇦 Gabon</span>
+                                <span class="badge badge-heart">Excellence</span>
+                                <span class="badge badge-crown">Beauté</span>
+                            </div>
+
+                            <p class="hero-description">Valoriser, soutenir et représenter les femmes gabonaises sur la scène nationale et internationale.</p>
+
+                            <!-- Animated stats -->
+                            <div class="hero-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">6</span>
+                                    <span class="stat-label">Candidates</span>
+                                </div>
+                                <div class="stat-divider"></div>
+                                <div class="stat-item">
+                                    <span class="stat-number">∞</span>
+                                    <span class="stat-label">Talent</span>
+                                </div>
+                                <div class="stat-divider"></div>
+                                <div class="stat-item">
+                                    <span class="stat-number">✨</span>
+                                    <span class="stat-label">Éclat</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="scroll-indicator">
-                <span>Scroll</span>
-                <div class="mouse"></div>
             </div>
         </section>
 
