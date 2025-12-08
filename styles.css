@@ -1290,13 +1290,23 @@ body {
     margin-bottom: 4rem;
 }
 
-.section-logo {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 2rem;
+.section-header h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    position: relative;
     display: inline-block;
-    filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.2));
-    animation: float-logo 3s ease-in-out infinite;
+    width: 100%;
+}
+
+.section-header p {
+    color: #c9a227; /* tu peux changer cette couleur si nécessaire */
+    font-size: 1rem;
+    margin-top: 0.5rem;
 }
 
 @keyframes float-logo {
@@ -1306,7 +1316,9 @@ body {
 
 .section-header h2 {
     font-size: clamp(2rem, 5vw, 3.5rem);
-    color: var(--secondary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1rem;
@@ -2207,11 +2219,16 @@ body {
 }
 
 .page-hero-content {
-    position: relative;
+    position: absolute; /* on change relative → absolute */
+    bottom: -20px;       /* distance par rapport au bas */
+    left: 20px;         /* distance à gauche */
     z-index: 2;
-    text-align: center;
-    color: white;
+    text-align: left;   /* alignement à gauche */
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #c9a227;
 }
+
 
 .page-hero-content h1 {
     font-size: clamp(2rem, 6vw, 3.5rem);
@@ -2219,6 +2236,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 800;
+    margin-top: 130px;
+    
 }
 
 .page-hero-content p {
