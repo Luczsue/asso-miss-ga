@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap');
+
+
 /* ===================== VARIABLES & RESET ===================== */
 :root {
     --primary-color: #d4af37;
@@ -2220,13 +2223,17 @@ body {
 
 .page-hero-content {
     position: absolute; /* on change relative → absolute */
-    bottom: -20px;       /* distance par rapport au bas */
+    bottom: 240px;       /* distance par rapport au bas */
     left: 20px;         /* distance à gauche */
     z-index: 2;
     text-align: left;   /* alignement à gauche */
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: #c9a227;
+    font-family: 'Merienda', cursive; /* moderne et élégant */
+font-weight: 800;                  /* gras pour accentuer le titre */
+letter-spacing: 0.5px;             /* espacement des lettres */
+
 }
 
 
