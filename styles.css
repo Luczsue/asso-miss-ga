@@ -61,6 +61,39 @@ body {
 /* Canvas animation removed */
 
 /* ===================== BOUTONS ===================== */
+.voir-plus {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 14px 32px;
+
+  background-color: #d4af37; /* doré élégant */
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  border-radius: 30px;
+  border: none;
+
+  transition: all 0.3s ease;
+}
+
+.voir-plus:hover {
+  background-color: #b8962e;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.about-content {
+  text-align: center;
+}
+
+.voir-plus {
+  margin-left: auto;
+  margin-right: auto;
+}
 .btn {
     padding: 12px 30px;
     border: none;
