@@ -177,8 +177,8 @@ body {
 }
 
 .logo-img {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.2));
     transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -2277,7 +2277,7 @@ body {
 
 .page-hero-content {
     position: absolute; /* on change relative → absolute */
-    bottom: 240px;       /* distance par rapport au bas */
+    bottom: 140px;       /* distance par rapport au bas */
     left: 20px;         /* distance à gauche */
     z-index: 2;
     text-align: left;   /* alignement à gauche */
