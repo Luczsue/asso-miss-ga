@@ -231,7 +231,7 @@ if (statsSection) {
         }
     }, { threshold: 0.5 });
     statsObserver.observe(statsSection);
-}
+} 
 
 // ===================== BOUTONS MODAUX =====================
 function openModal(modalId) {
@@ -272,64 +272,91 @@ if ('IntersectionObserver' in window) {
 }
 
 // ===================== DIAPORAMA HERO =====================
-// <--- Cette partie est corrigée uniquement --->
+// Crossfade + léger déplacement horizontal
 (function() {
-    const slides = document.querySelectorAll('.hero-slideshow .slide');
+    const container = document.getElementById('heroSlideshow');
+    if (!container) return;
+    const slides = Array.from(container.querySelectorAll('.slide'));
     const prevBtn = document.querySelector('.slideshow-control.prev');
     const nextBtn = document.querySelector('.slideshow-control.next');
     const dotsContainer = document.getElementById('slideshowDots');
 
-    if (!slides.length) return;
-
-    let currentIndex = 0;
-    const totalSlides = slides.length;
+    let current = 0;
+    const total = slides.length;
     let interval;
+    const duration = 5000;
 
-    // Charger les images lazy du diaporama si ce n'est pas déjà fait
-    slides.forEach(slide => {
-        const img = slide.querySelector('img');
-        if (img.dataset.src && !img.src) {
+    // lazy load images
+    slides.forEach(s => {
+        const img = s.querySelector('img');
+        if (img && img.dataset.src) {
             img.src = img.dataset.src;
             img.removeAttribute('data-src');
         }
     });
 
-    // Créer les dots
+    // dots
+    const dots = [];
     if (dotsContainer) {
-        slides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
+        slides.forEach((_, i) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.addEventListener('click', () => show(i));
+            dotsContainer.appendChild(b);
+            dots.push(b);
         });
     }
 
-    const dots = dotsContainer ? dotsContainer.querySelectorAll('button') : [];
-
-    function updateSlides() {
-        slides.forEach((slide, i) => slide.classList.toggle('active', i === currentIndex));
-        dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+    function setVisible(index, direction) {
+        slides.forEach((s, i) => {
+            s.classList.remove('active', 'enter-left', 'enter-right', 'exit-left', 'exit-right');
+            if (i === index) s.classList.add('active');
+        });
+        if (dots.length) dots.forEach((d, i) => d.classList.toggle('active', i === index));
     }
 
-    function goToSlide(index) {
-        currentIndex = (index + totalSlides) % totalSlides;
-        updateSlides();
+    function transition(toIndex) {
+        if (toIndex === current) return;
+        const from = slides[current];
+        const to = slides[toIndex];
+        const dir = toIndex > current || (current === total-1 && toIndex === 0) ? 'right' : 'left';
+
+        // prepare classes
+        to.classList.remove('exit-left','exit-right');
+        to.classList.add(dir === 'right' ? 'enter-right' : 'enter-left');
+        // force reflow
+        void to.offsetWidth;
+        to.classList.add('active');
+
+        from.classList.add(dir === 'right' ? 'exit-left' : 'exit-right');
+
+        // cleanup after transition
+        setTimeout(() => {
+            from.classList.remove('active','exit-left','exit-right');
+            to.classList.remove('enter-left','enter-right');
+            to.classList.add('active');
+            if (dots.length) dots.forEach((d, i) => d.classList.toggle('active', i === toIndex));
+        }, 900);
+
+        current = toIndex;
+    }
+
+    function show(index) {
+        const to = (index + total) % total;
+        transition(to);
         resetInterval();
     }
 
-    if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-    if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+    if (prevBtn) prevBtn.addEventListener('click', () => show(current - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => show(current + 1));
 
-    function startInterval() {
-        interval = setInterval(() => goToSlide(currentIndex + 1), 5000);
-    }
+    function start() { interval = setInterval(() => show(current + 1), duration); }
+    function resetInterval() { clearInterval(interval); start(); }
 
-    function resetInterval() {
-        clearInterval(interval);
-        startInterval();
-    }
+    // init
+    setVisible(0);
+    start();
 
-    updateSlides();
-    startInterval();
 })();
 
 // ===================== STYLES DYNAMIQUES POUR NOTIFICATIONS =====================
