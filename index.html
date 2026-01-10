@@ -34,96 +34,41 @@
     </header>
 
     <main>
-        <!-- SECTION 1: ACCUEIL - HERO (diaporama des Miss) -->
+        <!-- SECTION 1: ACCUEIL - HERO (diaporama plein écran, texte en overlay) -->
         <section id="accueil" class="hero hero-slideshow-section">
-            <div class="hero-inner container">
-                <div class="hero-images">
-                    <div class="hero-slideshow" id="heroSlideshow" data-slideshow>
-                        <!-- Slides: 20 images (lazy via data-src) -->
-                        <div class="slide" data-index="1"><img data-src="images/img_miss_1.jpg" alt="Miss 1" loading="lazy"></div>
-                        <div class="slide" data-index="2"><img data-src="images/img_miss_2.jpg" alt="Miss 2" loading="lazy"></div>
-                        <div class="slide" data-index="3"><img data-src="images/img_miss_3.jpg" alt="Miss 3" loading="lazy"></div>
-                        <div class="slide" data-index="4"><img data-src="images/img_miss_4.jpg" alt="Miss 4" loading="lazy"></div>
-                        <div class="slide" data-index="5"><img data-src="images/img_miss_5.jpg" alt="Miss 5" loading="lazy"></div>
-                        <div class="slide" data-index="6"><img data-src="images/img_miss_6.jpg" alt="Miss 6" loading="lazy"></div>
-                        <div class="slide" data-index="7"><img data-src="images/img_miss_7.jpg" alt="Miss 7" loading="lazy"></div>
-                        <div class="slide" data-index="8"><img data-src="images/img_miss_8.jpg" alt="Miss 8" loading="lazy"></div>
-                        <div class="slide" data-index="9"><img data-src="images/img_miss_9.jpg" alt="Miss 9" loading="lazy"></div>
-                        <div class="slide" data-index="10"><img data-src="images/img_miss_10.jpg" alt="Miss 10" loading="lazy"></div>
-                        <div class="slide" data-index="11"><img data-src="images/img_miss_11.jpg" alt="Miss 11" loading="lazy"></div>
-                        <div class="slide" data-index="12"><img data-src="images/img_miss_12.jpg" alt="Miss 12" loading="lazy"></div>
-                        <div class="slide" data-index="13"><img data-src="images/img_miss_13.jpg" alt="Miss 13" loading="lazy"></div>
-                        <div class="slide" data-index="14"><img data-src="images/img_miss_14.jpg" alt="Miss 14" loading="lazy"></div>
-                        <div class="slide" data-index="15"><img data-src="images/img_miss_15.jpg" alt="Miss 15" loading="lazy"></div>
-                        <div class="slide" data-index="16"><img data-src="images/img_miss_16.jpg" alt="Miss 16" loading="lazy"></div>
-                        <div class="slide" data-index="17"><img data-src="images/img_miss_17.jpg" alt="Miss 17" loading="lazy"></div>
-                        <div class="slide" data-index="18"><img data-src="images/img_miss_18.jpg" alt="Miss 18" loading="lazy"></div>
-                        <div class="slide" data-index="19"><img data-src="images/img_miss_19.jpg" alt="Miss 19" loading="lazy"></div>
-                        <div class="slide" data-index="20"><img data-src="images/img_miss_20.jpg" alt="Miss 20" loading="lazy"></div>
+            <div class="hero-slideshow" id="heroSlideshow" data-slideshow>
+                <!-- Slides (lazy) -->
+                <div class="slide" data-index="1"><img data-src="images/img_miss_1.jpg" alt="Miss 1" loading="lazy"></div>
+                <div class="slide" data-index="2"><img data-src="images/img_miss_2.jpg" alt="Miss 2" loading="lazy"></div>
+                <div class="slide" data-index="3"><img data-src="images/img_miss_3.jpg" alt="Miss 3" loading="lazy"></div>
+                <div class="slide" data-index="4"><img data-src="images/img_miss_4.jpg" alt="Miss 4" loading="lazy"></div>
+                <div class="slide" data-index="5"><img data-src="images/img_miss_5.jpg" alt="Miss 5" loading="lazy"></div>
+                <div class="slide" data-index="6"><img data-src="images/img_miss_6.jpg" alt="Miss 6" loading="lazy"></div>
+                <div class="slide" data-index="7"><img data-src="images/img_miss_7.jpg" alt="Miss 7" loading="lazy"></div>
+                <div class="slide" data-index="8"><img data-src="images/img_miss_8.jpg" alt="Miss 8" loading="lazy"></div>
+                <div class="slide" data-index="9"><img data-src="images/img_miss_9.jpg" alt="Miss 9" loading="lazy"></div>
+                <div class="slide" data-index="10"><img data-src="images/img_miss_10.jpg" alt="Miss 10" loading="lazy"></div>
+                <div class="slide" data-index="11"><img data-src="images/img_miss_11.jpg" alt="Miss 11" loading="lazy"></div>
+                <div class="slide" data-index="12"><img data-src="images/img_miss_12.jpg" alt="Miss 12" loading="lazy"></div>
+                <div class="slide" data-index="13"><img data-src="images/img_miss_13.jpg" alt="Miss 13" loading="lazy"></div>
+                <div class="slide" data-index="14"><img data-src="images/img_miss_14.jpg" alt="Miss 14" loading="lazy"></div>
+                <div class="slide" data-index="15"><img data-src="images/img_miss_15.jpg" alt="Miss 15" loading="lazy"></div>
+                <div class="slide" data-index="16"><img data-src="images/img_miss_16.jpg" alt="Miss 16" loading="lazy"></div>
+                <div class="slide" data-index="17"><img data-src="images/img_miss_17.jpg" alt="Miss 17" loading="lazy"></div>
+                <div class="slide" data-index="18"><img data-src="images/img_miss_18.jpg" alt="Miss 18" loading="lazy"></div>
+                <div class="slide" data-index="19"><img data-src="images/img_miss_19.jpg" alt="Miss 19" loading="lazy"></div>
+                <div class="slide" data-index="20"><img data-src="images/img_miss_20.jpg" alt="Miss 20" loading="lazy"></div>
 
-                        <!-- controls -->
-                        <button class="slideshow-control prev" aria-label="Précédent">‹</button>
-                        <button class="slideshow-control next" aria-label="Suivant">›</button>
+                <!-- controls -->
+                <button class="slideshow-control prev" aria-label="Précédent">‹</button>
+                <button class="slideshow-control next" aria-label="Suivant">›</button>
 
-                        <!-- pagination dots -->
-                        <div class="slideshow-dots" id="slideshowDots" aria-hidden="false"></div>
-                    </div>
-                </div>
-
-                <div class="hero-text">
-                    <div class="hero-text-inner">
-                        <!-- Animated country shape background -->
-                        <div class="gabon-shape-bg">
-                            <svg viewBox="0 0 100 150" preserveAspectRatio="xMidYMid meet" class="gabon-silhouette">
-                                <!-- Simplified Gabon outline -->
-                                <path d="M50,10 L70,20 L75,40 L80,60 L75,80 L70,90 L60,95 L50,100 L40,95 L30,90 L25,80 L20,60 L25,40 L30,20 Z" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.15"/>
-                                <!-- Decorative circles at key positions -->
-                                <circle cx="50" cy="50" r="2" fill="currentColor" opacity="0.1" class="gabon-marker"/>
-                                <circle cx="65" cy="35" r="1.5" fill="currentColor" opacity="0.08" class="gabon-marker-small"/>
-                                <circle cx="35" cy="60" r="1.5" fill="currentColor" opacity="0.08" class="gabon-marker-small"/>
-                            </svg>
-                        </div>
-
-                        <div class="hero-content-wrapper">
-                            <!-- Flag badge -->
-                            <div class="flag-badge">
-                                <span class="flag-stripe" style="background: #009E49;"></span>
-                                <span class="flag-stripe" style="background: #FEDD00;"></span>
-                                <span class="flag-stripe" style="background: #0033A0;"></span>
-                            </div>
-
-                            <h1 class="hero-heading">Association des Miss du Gabon</h1>
-                            
-                            <!-- Gabon badges -->
-                            <div class="gabon-badges">
-                                <span class="badge badge-gabon">🇬🇦 Gabon</span>
-                                <span class="badge badge-heart">Excellence</span>
-                                <span class="badge badge-crown">Beauté</span>
-                            </div>
-
-                            <p class="hero-description">Valoriser, soutenir et représenter les femmes gabonaises sur la scène nationale et internationale.</p>
-
-                            <!-- Animated stats -->
-                            <div class="hero-stats">
-                                <div class="stat-item">
-                                    <span class="stat-number">57</span>
-                                    <span class="stat-label">Candidates</span>
-                                </div>
-                                <div class="stat-divider"></div>
-                                <div class="stat-item">
-                                    <span class="stat-number">∞</span>
-                                    <span class="stat-label">Talent</span>
-                                </div>
-                                <div class="stat-divider"></div>
-                                <div class="stat-item">
-                                    <span class="stat-number">✨</span>
-                                    <span class="stat-label">Éclat</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- pagination dots -->
+                <div class="slideshow-dots" id="slideshowDots" aria-hidden="false"></div>
             </div>
+
+            <!-- Overlay content centered -->
+            
         </section>
 
         <!-- SECTION 2: APERÇU À PROPOS -->
@@ -151,9 +96,11 @@
                                 <span>Représentation internationale</span>
                             </div>
                         </div>
+    
                         <a href="about.html" class="btn btn-outline voir-plus">
   Voir plus
 </a>
+
                     </div>
 
                     <div class="about-image" data-aos="fade-left">

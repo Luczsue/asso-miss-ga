@@ -63,7 +63,7 @@ body {
 /* ===================== BOUTONS ===================== */
 .voir-plus {
   display: inline-block;
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding: 14px 32px;
 
   background-color: #d4af37; /* doré élégant */
@@ -80,6 +80,26 @@ body {
   transition: all 0.3s ease;
 }
 
+.voir-plus_ {
+    display: inline-block;
+  margin-top: -3rem;
+  padding: 14px 32px;
+
+  background-color: #d4af37; /* doré élégant */
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  border-radius: 30px;
+  border: none;
+
+  transition: all 0.3s ease;
+  
+}
+
 .voir-plus:hover {
   background-color: #b8962e;
   transform: translateY(-3px);
@@ -93,6 +113,7 @@ body {
 .voir-plus {
   margin-left: auto;
   margin-right: auto;
+  
 }
 .btn {
     padding: 12px 30px;
@@ -235,6 +256,65 @@ body {
     color: var(--primary-color);
 }
 
+/* TITRES ANIMÉS (Essence, Alliés, Actu...) : barre en dessous + légère épaisseur de bordure + glow */
+h1[data-aos] {
+    position: relative;
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4.5vw, 3rem);
+    -webkit-text-stroke: 0.6px rgba(0,0,0,0.15);
+    text-shadow: 0 4px 20px rgba(212, 175, 55, 0.45), 0 8px 30px rgba(255, 107, 157, 0.25);
+}
+
+h1[data-aos]::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 80px;
+    height: 8px; /* petite barre un peu plus épaisse */
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5), 0 0 25px rgba(255, 107, 157, 0.35);
+}
+
+/* Apply gradient fill to the heading text when supported (matches the underline bar) */
+@supports (-webkit-background-clip: text) {
+    h1[data-aos] {
+        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+}
+
+/* ===================== PAGE HERO SECTION ===================== */
+.page-hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.68), rgba(0,0,0,0.58));
+    z-index: 1;
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -291,7 +371,7 @@ body {
     align-items: stretch;
     justify-content: flex-start;
     padding: 0;
-    background: transparent; /* avoid showing underlying dark bg */
+    background: #fff; /* hero entirely white */
 }
 
 .hero-images {
@@ -314,12 +394,12 @@ body {
 
 .hero-text {
     flex: 1 1 52%;
-    color: var(--text-light);
+    color: var(--text-dark);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2rem 2.5rem; /* keep breathing room on the right */
-    background: linear-gradient(90deg, rgba(0,0,0,0.08), rgba(0,0,0,0));
+    background: #fff;
 }
 
 .hero-text-inner {
@@ -341,12 +421,7 @@ body {
     display: none;
 }
 
-.gabon-silhouette {
-    width: 100%;
-    height: 100%;
-    color: #009E49;
-    filter: none;
-}
+
 
 .gabon-marker {
     animation: none;
@@ -387,6 +462,7 @@ body {
 .flag-stripe {
     flex: 1;
     border-radius: 1px;
+  
 }
 
 @keyframes flag-shimmer {
@@ -581,6 +657,22 @@ body {
     overflow: hidden;
 }
 
+/* Active slide visible with gentle scale */
+.hero-slideshow .slide.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    z-index: 20;
+}
+
+/* Slow zoom animation on active slide image */
+@keyframes slow-zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.06); }
+}
+.hero-slideshow .slide.active img {
+    animation: slow-zoom 8s ease-in-out forwards;
+}
+
 .hero-slideshow .slide img {
     width: 100%;
     height: 100%;
@@ -591,6 +683,47 @@ body {
     object-position: top center; /* montre le haut de l'image en priorité */
     transform-origin: center top;
 }
+
+/* Overlay content */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 80;
+}
+.hero-overlay-inner {
+    pointer-events: auto;
+    max-width: 1100px;
+    width: 90%;
+    text-align: left;
+    color: var(--secondary-color);
+}
+.hero-overlay .hero-heading {
+    color: var(--secondary-color);
+    font-size: clamp(1.6rem, 3.2vw, 3rem);
+    margin-bottom: 0.4rem;
+}
+.hero-overlay .hero-phrase {
+    color: #444;
+    margin-bottom: 1rem;
+}
+.hero-overlay .hero-stats { margin-top: 1rem; display:flex; gap:1rem; align-items:center; }
+.hero-overlay .voir-plus { margin-top: 1.5rem; }
+
+/* Remove any decorative shadows or rounded borders in hero */
+.hero-slideshow, .hero-slideshow .slide, .hero-slideshow .slide img {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Transition helper classes for subtle horizontal movement */
+.enter-left { transform: translateX(-6%) scale(1.02); opacity: 1; }
+.enter-right { transform: translateX(6%) scale(1.02); opacity: 1; }
+.exit-left { transform: translateX(-6%) scale(0.98); opacity: 0; }
+.exit-right { transform: translateX(6%) scale(0.98); opacity: 0; }
 
 /* entrance / exit states used by the JS */
 .from-left { transform: translateX(-100%) scale(1.03); opacity: 1; }
@@ -608,21 +741,21 @@ body {
     height: 48px;
     border-radius: 50%;
     border: none;
-    background: rgba(0,0,0,0.45);
-    color: white;
+    background: rgba(255,255,255,0.85);
+    color: var(--secondary-color);
     font-size: 1.6rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 50;
-    box-shadow: var(--shadow-md);
+    box-shadow: none;
 }
 
 .slideshow-control.prev { left: 18px; }
 .slideshow-control.next { right: 18px; }
 
-.slideshow-control:hover { transform: translateY(-50%) scale(1.05); background: rgba(0,0,0,0.6); }
+.slideshow-control:hover { transform: translateY(-50%) scale(1.05); background: rgba(255,255,255,0.95); }
 
 /* Pagination dots */
 .slideshow-dots {
@@ -639,16 +772,16 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.45);
-    border: 2px solid rgba(0,0,0,0.15);
+    background: rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.06);
     cursor: pointer;
     transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .slideshow-dots .dot.active {
     background: var(--primary-color);
-    transform: scale(1.2);
-    box-shadow: 0 4px 14px rgba(212,175,55,0.35);
+    transform: scale(1.15);
+    box-shadow: none;
 }
 
 /* ===================== NAVBAR RESPONSIVE ===================== */
@@ -1361,7 +1494,7 @@ body {
 }
 
 .section-header p {
-    color: #c9a227; /* tu peux changer cette couleur si nécessaire */
+    color: var(--primary-color);
     font-size: 1rem;
     margin-top: 0.5rem;
 }
@@ -1397,10 +1530,26 @@ body {
 }
 
 .section-subtitle {
-    color: #666;
+    color: var(--primary-color);
     font-size: 1.1rem;
     font-weight: 300;
     letter-spacing: 1px;
+}
+
+/* Make subtitles use the same gradient as H2 when supported */
+@supports (-webkit-background-clip: text) {
+    .section-header p,
+    .section-subtitle {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+}
+
+/* ===================== PREVIEW SECTIONS (Actualités, Concours, Partenaires) ===================== */
+.preview-section {
+    padding: 6rem 0 8rem 0; /* augmenter bottom padding pour plus d'espace */
 }
 
 /* ===================== ABOUT SECTION ===================== */
@@ -1463,6 +1612,7 @@ body {
 
 .about-image {
     position: relative;
+    margin-top: 3rem;
 }
 
 .image-wrapper {
@@ -2230,6 +2380,8 @@ body {
 
     .section-header h2 {
         font-size: 1.5rem;
+       
+
     }
 
     .hero-title {
@@ -2459,7 +2611,7 @@ letter-spacing: 0.5px;             /* espacement des lettres */
 .news-grid-preview {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .news-card.full-width {
@@ -2971,7 +3123,8 @@ letter-spacing: 0.5px;             /* espacement des lettres */
         flex: 1 1 auto;
         width: 100%;
         padding: 1.5rem 1rem;
-        background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0));
+        background: #fff;
+        color: var(--text-dark);
     }
 
     .hero-text-inner {
