@@ -133,50 +133,7 @@ function showNotification(message, type) {
 }
 
 // ===================== GOOGLE MAPS =====================
-let map;
-
-function initMap() {
-    const librevilleCoords = { lat: 0.4162, lng: 9.4673 };
-
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: librevilleCoords,
-        mapTypeControl: true,
-        fullscreenControl: true,
-        streetViewControl: true,
-        styles: [
-            { "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }] },
-            { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] },
-            { "elementType": "labels.text.fill", "stylers": [{ "color": "#616161" }] },
-            { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#c9c9c9" }] },
-            { "featureType": "administrative.country", "elementType": "geometry.stroke", "stylers": [{ "color": "#cccccc" }] }
-        ]
-    });
-
-    const marker = new google.maps.Marker({
-        position: librevilleCoords,
-        map: map,
-        title: 'Association des Miss du Gabon',
-        icon: { path: google.maps.SymbolPath.CIRCLE, scale: 10, fillColor: '#d4af37', fillOpacity: 1, strokeColor: '#1a1a1a', strokeWeight: 2 }
-    });
-
-    const infoWindow = new google.maps.InfoWindow({
-        content: `
-            <div class="map-info">
-                <h4>Association des Miss du Gabon</h4>
-                <p>📍 Libreville, Gabon</p>
-                <p>📞 +241 XX XX XX XX</p>
-                <p>📧 contact@missgarbon.ga</p>
-            </div>
-        `
-    });
-
-    marker.addListener('click', () => infoWindow.open(map, marker));
-}
-
-if (document.getElementById('map')) {
-    window.addEventListener('load', initMap);
-}
+// Carte intégrée via iframe - pas besoin de script supplémentaire
 
 // ===================== ANIMATIONS AU SCROLL =====================
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
