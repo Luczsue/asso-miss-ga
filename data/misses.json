@@ -1,0 +1,259 @@
+{
+  "misses": [
+    {
+      "id": 1,
+      "nom": "MEHEKOU MOULOUNGUI Constalida Orty",
+      "titre": "Miss Panther 2025",
+      "annee": 2025,
+      "photo": "images/miss_orty.jpg",
+      "description": "Vice-Présidente de l'Association",
+      "biographie": "Constalida Orty MEHEKOU MOULOUNGUI est la Vice-Présidente de l'Association des Miss du Gabon. Élue Miss Panther 2025, elle incarne l'excellence, l'engagement et la détermination. Son parcours remarquable inspire les femmes du Gabon à poursuivre leurs rêves avec passion et fierté.",
+      "parcours": "Formée aux valeurs d'excellence et de solidarité, Constalida a toujours eu une passion pour le service public et l'engagement social. Avant d'accéder à ce titre prestigieux, elle a participé à plusieurs initiatives communautaires.",
+      "engagements": "Sensibilisation à la santé féminine, promotion de l'éducation des jeunes filles, engagement en faveur de l'égalité des genres",
+      "citation": "La beauté n'est que la surface. Le vrai pouvoir réside dans la détermination et le cœur.",
+      "reseaux": {
+        "facebook": "https://www.facebook.com/share/17wo3Hm5qT/",
+        "tiktok": "https://www.tiktok.com/@misspanthergabon2025?is_from_webapp=1&sender_device=pc",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 2,
+      "nom": "MINKOUE MI-NDONG Stécya",
+      "titre": "Présidente de l'Association",
+      "annee": 2025,
+      "photo": "images/miss_stecya.jpg",
+      "description": "Présidente de l'Association des Miss du Gabon",
+      "biographie": "Stécya MINKOUE MI-NDONG est la Présidente fondatrice de l'Association des Miss du Gabon. Dotée d'une vision claire et d'une détermination inébranlable, elle a créé cette organisation pour valoriser les femmes gabonaises et promouvoir l'excellence au niveau national et international.",
+      "parcours": "Depuis ses débuts, Stécya s'est investie dans la promotion du talent féminin. Son leadership naturel et sa capacité à rassembler les femmes autour d'une vision commune ont fait d'elle la fondatrice idéale de l'Association.",
+      "engagements": "Promotion de l'excellence féminine, représentation internationale, développement du talent local, engagement social",
+      "citation": "Une femme avec une vision peut changer le monde. Croyez en vous, et vous deviendrez la femme que vous rêvez d'être.",
+      "reseaux": {
+        "facebook": "https://www.facebook.com/share/1fTrHaFaNw/?mibextid=wwXIfr",
+        "tiktok": "https://www.tiktok.com/@bigornostecya.minkoue?_r=1&_t=ZM-91OC4vCFKJc",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 3,
+      "nom": "BOUNA MANDZA Lunel",
+      "titre": "Miss Université 2025",
+      "annee": 2025,
+      "photo": "images/miss_lunel.jpg",
+      "description": "Représentante des jeunes talents gabonais",
+      "biographie": "Lunel BOUNA MANDZA est l'incarnation de la jeunesse dynamique et talentueuse du Gabon. Élue Miss Université 2025, elle représente les étudiantes gabonaises avec fierté et engagement. Son charisme et sa dévotion aux causes sociales font d'elle une personnalité influente du mouvement étudiant.",
+      "parcours": "Étudiante passionnée, Lunel a toujours été impliquée dans les activités de son université. Son engagement envers l'éducation et le développement personnel l'a menée à remporter le titre de Miss Université.",
+      "engagements": "Promotion de l'éducation, engagement étudiant, sensibilisation aux enjeux sociaux, développement du leadership féminin",
+      "citation": "Les études sont la clé du succès. Investissez en vous et en votre avenir.",
+      "reseaux": {
+        "facebook": "https://www.facebook.com/search/top?q=lunel%20bouna%20mandza",
+        "tiktok": "",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 4,
+      "nom": "NTSAME ANGO Army",
+      "titre": "Secrétaire Générale",
+      "annee": 2025,
+      "photo": "images/miss_army.jpg",
+      "description": "Secrétaire Générale de l'Association",
+      "biographie": "Army NTSAME ANGO est la Secrétaire Générale de l'Association des Miss du Gabon. Administratrice avisée et organisatrice talentueuse, elle gère les opérations et la documentation de l'Association avec rigueur et professionnalisme.",
+      "parcours": "Fort d'une expérience en gestion administrative, Army a mis à profit ses compétences pour structurer les opérations de l'Association et assurer son bon fonctionnement.",
+      "engagements": "Gestion organisationnelle, transparence administrative, documentation précise, support aux membres",
+      "citation": "L'organisation et la structure sont les fondations du succès.",
+      "reseaux": {
+        "facebook": "https://www.facebook.com/permalink.php?story_fbid=pfbid02ykqWA5W6vJFXNAHAu6xou7DuLN4RjcuMtmKcSDzBcWoTMQ1YyXoinXQYqFFSA6Mml&id=100092481101631",
+        "tiktok": "https://vm.tiktok.com/ZMDdsHtgC/",
+        "instagram": "https://www.instagram.com/p/C_TPeGDIjIa/?igsh=MjJudDl5ZnBjcWk0"
+      }
+    },
+    {
+      "id": 5,
+      "nom": "NGONDI MANGOUHOU Anna Jessy Belgrace",
+      "titre": "Trésorière",
+      "annee": 2025,
+      "photo": "images/miss_belgrace.jpg",
+      "description": "Trésorière de l'Association",
+      "biographie": "Anna Jessy Belgrace NGONDI MANGOUHOU est la Trésorière de l'Association des Miss du Gabon. Experte en gestion financière, elle assure une gestion transparente et rigoureuse des ressources de l'Association.",
+      "parcours": "Spécialisée en gestion financière et comptabilité, Anna Jessy apporte une expertise précieuse à l'Association. Son engagement envers la transparence financière garantit une gestion saine des fonds.",
+      "engagements": "Gestion financière transparente, comptabilité rigoureuse, développement durable de l'Association, responsabilité fiscale",
+      "citation": "Une bonne gestion financière est la clé de la durabilité et du développement.",
+      "reseaux": {
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 6,
+      "nom": "Miss Casino Croisette 2024",
+      "titre": "Miss Casino Croisette 2024",
+      "annee": 2024,
+      "photo": "images/miss_casino_2024.jpg",
+      "description": "Gagnante du concours inaugural 2024",
+      "biographie": "La première gagnante du concours Miss Casino Croisette 2024 a marqué l'histoire de l'Association. Elle a remporté ce titre inaugural qui a jeté les bases de l'excellence et de l'engagement que l'Association promeut.",
+      "parcours": "Candidate exceptionnelle, elle a brillé lors de la finale historique de 2024, démontrant excellence, charisme et détermination.",
+      "engagements": "Représentation de l'Association, promotion des valeurs de l'Association, engagement social",
+      "citation": "Être la première, c'est ouvrir la voie à d'autres succès.",
+      "reseaux": {
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 7,
+      "nom": "Miss Université 2024",
+      "titre": "Miss Université 2024",
+      "annee": 2024,
+      "photo": "images/miss_univ_2024.jpg",
+      "description": "Représentante des étudiantes 2024",
+      "biographie": "Élue Miss Université 2024, cette jeune femme a incarné l'excellence académique et le leadership étudiant. Son parcours universitaire remarquable et son engagement en faveur de l'éducation l'ont propulsée au titre.",
+      "parcours": "Étudiante passionnée par ses études, elle s'est distinguée par son implication dans les affaires étudiantes et son dévouement à l'excellence.",
+      "engagements": "Promotion de l'éducation, engagement étudiant, leadership féminin",
+      "citation": "L'éducation est le pouvoir de transformer le monde.",
+      "reseaux": {
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 8,
+      "nom": "Candidate Miss Casino 2025",
+      "titre": "Finaliste Miss Casino Croisette 2025",
+      "annee": 2025,
+      "photo": "images/miss_casino_finaliste_2025.jpg",
+      "description": "Candidate de talent pour Miss Casino 2025",
+      "biographie": "Candidate talentueuse et engagée, elle brille par sa détermination et son charisme. Finaliste du concours Miss Casino Croisette 2025, elle représente l'esprit d'excellence de l'Association.",
+      "parcours": "Participant remarquable aux préparatifs du concours, elle a démontré des qualités exceptionnelles et une forte motivation.",
+      "engagements": "Représentation de l'excellence, engagement social, promotion des valeurs de l'Association",
+      "citation": "Chaque concours est une opportunité de briller et de se surpasser.",
+      "reseaux": {
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 9,
+      "nom": "Candidate Miss Gabon 2025",
+      "titre": "Candidate Miss Gabon 2025",
+      "annee": 2025,
+      "photo": "images/miss_gabon_candidate.jpg",
+      "description": "Représentante du Gabon à l'international",
+      "biographie": "Dotée d'une présence remarquable et d'une vision claire, cette candidate incarne la beauté, l'intelligence et le talent. Elle aspire à représenter le Gabon sur la scène internationale.",
+      "parcours": "Préparée aux standards internationaux, elle suit un parcours intense de formation et de développement personnel pour se préparer à la compétition.",
+      "engagements": "Représentation du Gabon, promotion de la culture gabonaise, engagement international",
+      "citation": "Représenter mon pays est mon honneur et ma plus grande fierté.",
+      "reseaux": {
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 10,
+      "nom": "Miss Talent & Intelligence 2025",
+      "titre": "Gagnante Miss Talent & Intelligence 2025",
+      "annee": 2025,
+      "photo": "images/miss_talent_intelligence.jpg",
+      "description": "Lauréate du prix spécial Talent & Intelligence",
+      "biographie": "Élue pour ses talents exceptionnels et son intelligence brillante, cette Miss a remporté le prix spécial décerné par l'Association. Elle exemplifie l'engagement de l'Association envers la valorisation de plus que la beauté.",
+      "parcours": "Passionnée par ses talents artistiques et intellectuels, elle a su les exprimer avec authenticité lors des concours.",
+      "engagements": "Promotion des talents gabonais, engagement culturel, excellence intellectuelle",
+      "citation": "Les véritables talents brillent de l'intérieur et rayonnent vers l'extérieur.",
+      "reseaux": {
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 11,
+      "nom": "Miss Philanthropie 2025",
+      "titre": "Miss Philanthropie 2025",
+      "annee": 2025,
+      "photo": "images/miss_philanthropie.jpg",
+      "description": "Engagée envers l'action sociale",
+      "biographie": "Élue Miss Philanthropie 2025 pour son engagement exceptionnel envers les causes sociales, cette jeune femme incarne les valeurs humanitaires de l'Association. Son dévouement à aider les autres inspire son communauté.",
+      "parcours": "Depuis ses débuts, elle s'est impliquée dans des projets communautaires et socio-humanitaires. Son engagement est constant et sincère.",
+      "engagements": "Action sociale, aide humanitaire, développement communautaire, engagement envers les causes justes",
+      "citation": "Aider les autres ne coûte rien, mais peut changer tout.",
+      "reseaux": {
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 12,
+      "nom": "Miss Charisma 2025",
+      "titre": "Miss Charisma 2025",
+      "annee": 2025,
+      "photo": "images/miss_charisma.jpg",
+      "description": "Maîtresse de charisme et de présence",
+      "biographie": "Dotée d'un charisme naturel et d'une présence captivante, cette Miss a remporté le titre Miss Charisma 2025. Son énergie contagieuse et sa personnalité attachante font d'elle une ambassadrice inoubliable de l'Association.",
+      "parcours": "Dotée d'une présence naturelle depuis le début, elle s'est épanouie dans le rôle de représentante de l'Association avec grâce et aisance.",
+      "engagements": "Communication, représentation de l'Association, engagement public",
+      "citation": "Le charisme n'est pas prétendu ; il jaillit de l'authenticité et de la confiance.",
+      "reseaux": {
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 13,
+      "nom": "Miss Élégance 2025",
+      "titre": "Miss Élégance 2025",
+      "annee": 2025,
+      "photo": "images/miss_elegance.jpg",
+      "description": "Symbole de grâce et de raffinement",
+      "biographie": "Incarnation de l'élégance et du raffinement, cette Miss a remporté le titre Miss Élégance 2025. Sa maîtrise de l'étiquette, sa grâce naturelle et son port altier en font une ambassadrice de prestige de l'Association.",
+      "parcours": "Éducation poussée aux arts et à l'étiquette, elle a développé une maîtrise remarquable de l'élégance et du raffinement.",
+      "engagements": "Représentation de l'excellence esthétique, engagement envers la beauté et le raffinement",
+      "citation": "L'élégance est la seule beauté qui ne s'effface jamais.",
+      "reseaux": {
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 14,
+      "nom": "Miss Inspiration 2025",
+      "titre": "Miss Inspiration 2025",
+      "annee": 2025,
+      "photo": "images/miss_inspiration.jpg",
+      "description": "Source d'inspiration pour la jeunesse",
+      "biographie": "Élue Miss Inspiration 2025, cette jeune femme incarne l'espoir et les possibilités. Son histoire personnelle et son parcours motivant inspirent des milliers de jeunes femmes du Gabon à poursuivre leurs rêves.",
+      "parcours": "Passée par des défis et des réussites, elle a transformé ses expériences en leçons et en inspiration pour autrui.",
+      "engagements": "Engagement envers la jeunesse, partage d'inspiration, développement personnel",
+      "citation": "Votre histoire peut être la raison pour laquelle quelqu'un d'autre ne renonce pas.",
+      "reseaux": {
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      }
+    },
+    {
+      "id": 15,
+      "nom": "Miss Excellence 2025",
+      "titre": "Miss Excellence 2025",
+      "annee": 2025,
+      "photo": "images/miss_excellence.jpg",
+      "description": "Parangon d'excellence et de perfection",
+      "biographie": "Couronnée Miss Excellence 2025, cette candidate représente le summum de l'excellence que l'Association promeut. Sa préparation minutieuse, son talent naturel et son dévouement en font une véritable championne.",
+      "parcours": "Dévouée à l'excellence en tous domaines, elle a atteint des standards exceptionnels dans tous les aspects de sa vie.",
+      "engagements": "Promotion de l'excellence, développement personnel, engagement envers la perfection",
+      "citation": "L'excellence n'est pas une destination, c'est un voyage continu.",
+      "reseaux": {
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      }
+    }
+  ]
+}
