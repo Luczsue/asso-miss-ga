@@ -170,6 +170,11 @@ body {
     font-size: 1rem;
 }
 
+.btn-small {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+}
+
 /* ===================== NAVBAR ===================== */
 .navbar {
     background: linear-gradient(90deg, rgba(0,0,0,0.08), rgba(0,0,0,0));
@@ -3561,3 +3566,490 @@ letter-spacing: 0.5px;             /* espacement des lettres */
 .slideshow-dots button.active {
     background: white;
 }
+
+/* ===================== SECTION MISS ===================== */
+
+/* Section Nos Miss sur about.html */
+.nos-miss-section {
+    padding: 4rem 0;
+    background: var(--light-bg);
+}
+
+.nos-miss-preview {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+/* Page Toutes les Miss */
+.misses-section {
+    padding: 4rem 0;
+}
+
+.misses-filters {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0 3rem 0;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.filter-group select {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    background: white;
+    color: var(--text-dark);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.misses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.miss-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.miss-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.miss-image {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.miss-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.miss-card:hover .miss-image img {
+    transform: scale(1.05);
+}
+
+.miss-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.miss-card:hover .miss-overlay {
+    opacity: 1;
+}
+
+.miss-overlay .btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.miss-overlay .btn:hover {
+    background: #f4d757;
+    transform: scale(1.05);
+}
+
+.miss-content {
+    padding: 1.5rem;
+}
+
+.miss-content h3 {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.miss-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.miss-year {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.miss-description {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Miss Detail Page */
+.miss-detail-section {
+    padding: 4rem 0;
+}
+
+.miss-detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.miss-detail-image {
+    position: relative;
+}
+
+.miss-main-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+}
+
+.miss-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.miss-detail-info h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.miss-title-large {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.miss-detail-info .miss-year {
+    margin-bottom: 1rem;
+}
+
+.miss-social {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0 2rem 0;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: var(--light-bg);
+    border-radius: 50%;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.detail-section {
+    margin-bottom: 2rem;
+}
+
+.detail-section h3 {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.detail-section p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.detail-section.citation {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.detail-section.citation blockquote {
+    font-style: italic;
+    color: var(--text-dark);
+}
+
+.detail-section.citation blockquote p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.detail-section.citation footer {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+}
+
+.back-link {
+    margin-top: 2rem;
+}
+
+.back-link .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.back-link .btn:hover {
+    background: #f4d757;
+}
+
+/* Related Misses Section */
+.related-misses-section {
+    padding: 4rem 0;
+    background: var(--light-bg);
+}
+
+.related-misses-section h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+.related-misses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.miss-card-small {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.miss-card-small:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.miss-image-small {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.miss-image-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.miss-card-small:hover .miss-image-small img {
+    transform: scale(1.05);
+}
+
+.miss-content-small {
+    padding: 1.5rem;
+}
+
+.miss-content-small h4 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.25rem;
+}
+
+.miss-content-small p {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.link-arrow {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.link-arrow:hover {
+    color: var(--secondary-color);
+}
+
+/* Gallery */
+.miss-gallery-section {
+    padding: 3rem 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ===================== RESPONSIVE MISSES ===================== */
+
+@media (max-width: 768px) {
+    .misses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .miss-card {
+        border-radius: 8px;
+    }
+
+    .miss-image {
+        height: 250px;
+    }
+
+    .miss-content {
+        padding: 1rem;
+    }
+
+    .miss-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .miss-detail-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .miss-detail-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .misses-filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-group select {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .misses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .miss-card {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 1rem;
+    }
+
+    .miss-image {
+        height: 200px;
+    }
+
+    .miss-detail-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .detail-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .related-misses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
