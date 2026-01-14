@@ -3,9 +3,9 @@
     {
       "id": 1,
       "nom": "MEHEKOU MOULOUNGUI Constalida Orty",
-      "titre": "MISS PANTHER 2025",
+      "titre": "Miss Panther 2025",
       "annee": 2025,
-      "photo": "images/img_orty_.jpg",
+      "photo": "images/img_orty__.jpg",
       "description": "Vice-Présidente de l'Association",
       "biographie": "Vice-présidente de l’Association des Miss du Gabon, elle est une figure engagée qui allie leadership, excellence et entrepreneuriat. Élue Miss Panthère 2025, elle incarne une jeunesse gabonaise ambitieuse, porteuse de valeurs fortes et tournée vers l’impact social et économique. Entrepreneure visionnaire, elle est la fondatrice de Les Saveurs de Livindo, une entreprise agro-industrielle spécialisée dans la transformation du manioc. À travers des produits innovants tels que les boulettes, la compote, le yaourt, la farine et bien d’autres dérivés, elle contribue activement à la valorisation des produits locaux, à la transformation agroalimentaire et à la promotion du “consommer local”. À la croisée du leadership associatif, de la beauté engagée et de l’entrepreneuriat, elle représente une nouvelle génération de femmes leaders, déterminées à bâtir un avenir inclusif, innovant et prospère pour le Gabon.",
       
@@ -55,8 +55,8 @@
     {
       "id": 4,
       "nom": "NTSAME ANGO Army",
-      "titre": "Secrétaire Générale",
-      "annee": 2025,
+      "titre": "Miss Akanda Environnement 2023",
+      "annee": 2023,
       "photo": "images/img_mixa.jpg",
       "description": "Secrétaire Générale de l'Association",
       "biographie": "Army NTSAME ANGO est la Secrétaire Générale de l'Association des Miss du Gabon. Administratrice avisée et organisatrice talentueuse, elle gère les opérations et la documentation de l'Association avec rigueur et professionnalisme.",
@@ -139,10 +139,10 @@
     },
     {
       "id": 9,
-      "nom": "Candidate Miss Gabon 2025",
-      "titre": "Candidate Miss Gabon 2025",
+      "nom": "MAGANGA MENGA Lizanne Glaindora",
+      "titre": "Miss Ronde Akae Beach 2025",
       "annee": 2025,
-      "photo": "images/miss_gabon_candidate.jpg",
+      "photo": "images/img_lizanne.jpg",
       "description": "Représentante du Gabon à l'international",
       "biographie": "Dotée d'une présence remarquable et d'une vision claire, cette candidate incarne la beauté, l'intelligence et le talent. Elle aspire à représenter le Gabon sur la scène internationale.",
       "parcours": "Préparée aux standards internationaux, elle suit un parcours intense de formation et de développement personnel pour se préparer à la compétition.",
@@ -156,10 +156,10 @@
     },
     {
       "id": 10,
-      "nom": "Miss Talent & Intelligence 2025",
-      "titre": "Gagnante Miss Talent & Intelligence 2025",
-      "annee": 2025,
-      "photo": "images/miss_talent_intelligence.jpg",
+      "nom": "MEDZA ONDO Mirabelle jolie",
+      "titre": "Miss Tourisme Gabon 2024",
+      "annee": 2024,
+      "photo": "images/img_jolie.jpg",
       "description": "Lauréate du prix spécial Talent & Intelligence",
       "biographie": "Élue pour ses talents exceptionnels et son intelligence brillante, cette Miss a remporté le prix spécial décerné par l'Association. Elle exemplifie l'engagement de l'Association envers la valorisation de plus que la beauté.",
       "parcours": "Passionnée par ses talents artistiques et intellectuels, elle a su les exprimer avec authenticité lors des concours.",
@@ -173,10 +173,10 @@
     },
     {
       "id": 11,
-      "nom": "Miss Philanthropie 2025",
-      "titre": "Miss Philanthropie 2025",
-      "annee": 2025,
-      "photo": "images/miss_philanthropie.jpg",
+      "nom": "ATSAME SIMA Jeanne Noella",
+      "titre": "2ème Dauphine Miss Okano Culture 2022",
+      "annee": 2022,
+      "photo": "images/img_jeanne.jpg",
       "description": "Engagée envers l'action sociale",
       "biographie": "Élue Miss Philanthropie 2025 pour son engagement exceptionnel envers les causes sociales, cette jeune femme incarne les valeurs humanitaires de l'Association. Son dévouement à aider les autres inspire son communauté.",
       "parcours": "Depuis ses débuts, elle s'est impliquée dans des projets communautaires et socio-humanitaires. Son engagement est constant et sincère.",
@@ -190,10 +190,10 @@
     },
     {
       "id": 12,
-      "nom": "Miss Charisma 2025",
-      "titre": "Miss Charisma 2025",
-      "annee": 2025,
-      "photo": "images/miss_charisma.jpg",
+      "nom": "LENGOUMOU KENGUE Sylvaine Rhaïna",
+      "titre": "1ère Dauphine Miss Tourisme Gabon 2024",
+      "annee": 2024,
+      "photo": "images/img_rhaina.jpg",
       "description": "Maîtresse de charisme et de présence",
       "biographie": "Dotée d'un charisme naturel et d'une présence captivante, cette Miss a remporté le titre Miss Charisma 2025. Son énergie contagieuse et sa personnalité attachante font d'elle une ambassadrice inoubliable de l'Association.",
       "parcours": "Dotée d'une présence naturelle depuis le début, elle s'est épanouie dans le rôle de représentante de l'Association avec grâce et aisance.",
@@ -207,10 +207,10 @@
     },
     {
       "id": 13,
-      "nom": "Miss Élégance 2025",
-      "titre": "Miss Élégance 2025",
-      "annee": 2025,
-      "photo": "images/miss_elegance.jpg",
+      "nom": "AVOME OKO’O Valerie Rose",
+      "titre": "Candidate",
+      "annee": 2026,
+      "photo": "images/img_rose.jpg",
       "description": "Symbole de grâce et de raffinement",
       "biographie": "Incarnation de l'élégance et du raffinement, cette Miss a remporté le titre Miss Élégance 2025. Sa maîtrise de l'étiquette, sa grâce naturelle et son port altier en font une ambassadrice de prestige de l'Association.",
       "parcours": "Éducation poussée aux arts et à l'étiquette, elle a développé une maîtrise remarquable de l'élégance et du raffinement.",
@@ -224,10 +224,10 @@
     },
     {
       "id": 14,
-      "nom": "Miss Inspiration 2025",
-      "titre": "Miss Inspiration 2025",
-      "annee": 2025,
-      "photo": "images/miss_inspiration.jpg",
+      "nom": "NDAKISSA YOUBI Joelle Miriame",
+      "titre": "Miss Environment Gabon 2023",
+      "annee": 2023,
+      "photo": "images/img_joelle.jpg",
       "description": "Source d'inspiration pour la jeunesse",
       "biographie": "Élue Miss Inspiration 2025, cette jeune femme incarne l'espoir et les possibilités. Son histoire personnelle et son parcours motivant inspirent des milliers de jeunes femmes du Gabon à poursuivre leurs rêves.",
       "parcours": "Passée par des défis et des réussites, elle a transformé ses expériences en leçons et en inspiration pour autrui.",
@@ -238,23 +238,7 @@
         "tiktok": "",
         "instagram": ""
       }
-    },
-    {
-      "id": 15,
-      "nom": "Miss Excellence 2025",
-      "titre": "Miss Excellence 2025",
-      "annee": 2025,
-      "photo": "images/miss_excellence.jpg",
-      "description": "Parangon d'excellence et de perfection",
-      "biographie": "Couronnée Miss Excellence 2025, cette candidate représente le summum de l'excellence que l'Association promeut. Sa préparation minutieuse, son talent naturel et son dévouement en font une véritable championne.",
-      "parcours": "Dévouée à l'excellence en tous domaines, elle a atteint des standards exceptionnels dans tous les aspects de sa vie.",
-      "engagements": "Promotion de l'excellence, développement personnel, engagement envers la perfection",
-      "citation": "L'excellence n'est pas une destination, c'est un voyage continu.",
-      "reseaux": {
-        "facebook": "",
-        "tiktok": "",
-        "instagram": ""
-      }
     }
+    
   ]
 }
