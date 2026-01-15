@@ -3783,7 +3783,7 @@ letter-spacing: 0.5px;             /* espacement des lettres */
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .miss-detail-info h2 {
@@ -3793,7 +3793,7 @@ letter-spacing: 0.5px;             /* espacement des lettres */
 }
 
 .miss-title-large {
-    font-size: 1.3rem;
+    font-size: 0.9rem;
     color: var(--primary-color);
     font-weight: 600;
     margin-bottom: 0.25rem;
