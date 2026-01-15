@@ -4087,3 +4087,20 @@ letter-spacing: 0.5px;             /* espacement des lettres */
     }
 }
 
+/* Mobile adjustments for miss badge */
+@media (max-width: 768px) {
+    .miss-badge {
+        font-size: 0.7rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .miss-badge {
+        font-size: 0.65rem;
+        padding: 6px 12px;
+        top: 15px;
+        right: 15px;
+    }
+}
+
