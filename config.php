@@ -41,10 +41,11 @@ define('FROM_MAIL', 'noreply@missgarbon.ga');
 */
 
 // ===================== ADRESSES EMAIL =====================
-define('EMAIL_CONTACT', 'contact@missgarbon.ga');
-define('EMAIL_SUPPORT', 'support@missgarbon.ga');
-define('EMAIL_PARTNERSHIPS', 'partnerships@missgarbon.ga');
-define('EMAIL_ADMIN', 'admin@missgarbon.ga');
+// Tous les messages des visiteurs seront envoyés à cette adresse
+define('EMAIL_CONTACT', 'lucasmengue320@gmail.com');
+define('EMAIL_SUPPORT', 'lucasmengue320@gmail.com');
+define('EMAIL_PARTNERSHIPS', 'lucasmengue320@gmail.com');
+define('EMAIL_ADMIN', 'lucasmengue320@gmail.com');
 
 // ===================== CONFIGURATION SITE =====================
 define('SITE_NAME', 'Association des Miss du Gabon');
