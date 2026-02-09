@@ -91,18 +91,19 @@
 
                     <div class="contact-form" data-aos="fade-left">
                         <h3>Envoyez-nous un Message</h3>
-                        <form id="contactForm">
+                        <div id="formMessage" role="status" aria-live="polite" style="margin-bottom:1rem"></div>
+                        <form id="contactForm" method="POST">
                             <div class="form-group">
-                                <input type="text" placeholder="Votre nom" required>
+                                <input type="text" name="name" placeholder="Votre nom" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" placeholder="Votre email" required>
+                                <input type="email" name="email" placeholder="Votre email" required>
                             </div>
                             <div class="form-group">
-                                <input type="tel" placeholder="Votre téléphone">
+                                <input type="tel" name="phone" placeholder="Votre téléphone">
                             </div>
                             <div class="form-group">
-                                <select required>
+                                <select name="subject" required>
                                     <option value="">Sujet du message</option>
                                     <option value="concours">Inscription concours</option>
                                     <option value="partenariat">Partenariat</option>
@@ -112,7 +113,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <textarea placeholder="Votre message" rows="5" required></textarea>
+                                <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Envoyer le message</button>
                         </form>
@@ -237,5 +238,31 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
+    <script src="form-handler.js"></script>
+    <script>
+        (function(){
+            function getParam(name){
+                const url = new URL(window.location.href);
+                return url.searchParams.get(name);
+            }
+            const status = getParam('status');
+            const message = getParam('message');
+            const container = document.getElementById('formMessage');
+            if(status && container){
+                if(status === 'success'){
+                    container.innerHTML = '<div style="padding:12px;border-radius:6px;background:#e6ffed;color:#046b2e;border:1px solid #c6f2d2;">Votre message a bien été envoyé. Merci !</div>';
+                } else {
+                    container.innerHTML = '<div style="padding:12px;border-radius:6px;background:#ffe6e6;color:#a70000;border:1px solid #f2c6c6;">'+(message ? decodeURIComponent(message) : 'Une erreur est survenue. Veuillez réessayer.')+'</div>';
+                }
+                // Remove query params to avoid duplicate message on reload
+                if(window.history && window.history.replaceState){
+                    const url = new URL(window.location.href);
+                    url.searchParams.delete('status');
+                    url.searchParams.delete('message');
+                    window.history.replaceState({}, document.title, url.pathname + url.search);
+                }
+            }
+        })();
+    </script>
 </body>
 </html>

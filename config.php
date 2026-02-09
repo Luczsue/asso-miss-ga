@@ -7,15 +7,16 @@
 // ===================== CONFIGURATION EMAIL =====================
 define('SMTP_HOST', 'smtp.gmail.com'); // ou votre serveur SMTP
 define('SMTP_PORT', 587); // 587 pour TLS, 465 pour SSL
-define('SMTP_USER', 'contact@missgarbon.ga'); // Votre adresse email
-define('SMTP_PASS', 'your_password_here'); // Votre mot de passe (utiliser variables d'environnement en production)
-define('SMTP_FROM_NAME', 'Association des Miss du Gabon');
+define('SMTP_USER', 'lucasmengue320@gmail.com'); // Votre adresse email
+define('SMTP_PASS', 'your_app_password_here'); // Votre mot de passe app (utiliser variables d'environnement en production)
+define('FROM_NAME', 'Association des Miss du Gabon');
+define('FROM_MAIL', 'lucasmengue320@gmail.com');
 
 // ===================== ADRESSES EMAIL =====================
-define('EMAIL_CONTACT', 'contact@missgarbon.ga');
-define('EMAIL_SUPPORT', 'support@missgarbon.ga');
-define('EMAIL_PARTNERSHIPS', 'partnerships@missgarbon.ga');
-define('EMAIL_ADMIN', 'admin@missgarbon.ga');
+define('EMAIL_CONTACT', 'lucasmengue320@gmail.com');
+define('EMAIL_SUPPORT', 'lucasmengue320@gmail.com');
+define('EMAIL_PARTNERSHIPS', 'lucasmengue320@gmail.com');
+define('EMAIL_ADMIN', 'lucasmengue320@gmail.com');
 
 // ===================== CONFIGURATION SITE =====================
 define('SITE_NAME', 'Association des Miss du Gabon');
