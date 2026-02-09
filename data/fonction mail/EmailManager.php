@@ -6,14 +6,6 @@
 
 require_once __DIR__ . '/config.php';
 
-// Charger PHPMailer depuis vendor (autoload)
-if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require_once __DIR__ . '/vendor/autoload.php';
-}
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
 class EmailManager {
     private $to;
     private $subject;
@@ -145,71 +137,30 @@ class EmailManager {
                 throw new Exception('Destinataire, sujet ou message manquant');
             }
 
-            // Créer instance PHPMailer
-            $mail = new PHPMailer(true);
+            // Construire les headers additionnels
+            $headers = $this->headers;
 
-            // Debug PHPMailer → rediriger vers le logger
-            if (defined('SMTP_DEBUG') && SMTP_DEBUG) {
-                $mail->SMTPDebug = SMTP_DEBUG;
-                $mail->Debugoutput = function($msg, $level) {
-                    // Nettoyer les retours chariot et logguer
-                    $m = trim(preg_replace('/\s+/', ' ', $msg));
-                    logError('PHPMailer DEBUG: ' . $m, 'PHPMailer');
-                };
-            }
-
-            // Configuration SMTP si défini
-            if (defined('SMTP_HOST') && SMTP_HOST) {
-                $mail->isSMTP();
-                $mail->Host = SMTP_HOST;
-                $mail->SMTPAuth = true;
-                $mail->Username = SMTP_USER;
-                $mail->Password = SMTP_PASS;
-                $mail->Port = SMTP_PORT;
-
-                // Déterminer le type de chiffrement
-                if (SMTP_PORT == 465) {
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-                } else {
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                }
-            }
-
-            // Configuration de base
-            $mail->CharSet = 'UTF-8';
-            $mail->setFrom(FROM_MAIL, FROM_NAME);
-            $mail->isHTML(true);
-            $mail->Subject = $this->subject;
-            $mail->Body = $this->message;
-            $mail->AltBody = strip_tags($this->message);
-
-            // Ajouter destinataire principal
-            $this->addAddressFromString($mail, 'addAddress', $this->to);
-
-            // Ajouter Reply-To
             if ($this->replyTo) {
-                $this->addAddressFromString($mail, 'addReplyTo', $this->replyTo);
+                $headers .= "Reply-To: " . $this->replyTo . "\r\n";
             }
 
-            // Ajouter CC
-            foreach ($this->cc as $cc) {
-                $this->addAddressFromString($mail, 'addCC', $cc);
+            if (!empty($this->cc)) {
+                $headers .= "Cc: " . implode(', ', $this->cc) . "\r\n";
             }
 
-            // Ajouter BCC
-            foreach ($this->bcc as $bcc) {
-                $mail->addBCC($bcc);
-            }
-
-            // Ajouter pièces jointes
-            foreach ($this->attachments as $att) {
-                $mail->addAttachment($att['path'], $att['name']);
+            if (!empty($this->bcc)) {
+                $headers .= "Bcc: " . implode(', ', $this->bcc) . "\r\n";
             }
 
             // Envoyer l'email
-            $mail->send();
-            logSuccess('Email envoyé (PHPMailer) à: ' . $this->to);
-            return true;
+            $result = mail($this->to, $this->subject, $this->message, $headers);
+
+            if ($result) {
+                logSuccess('Email envoyé à: ' . $this->to);
+                return true;
+            } else {
+                throw new Exception('Erreur lors de l\'envoi de l\'email');
+            }
 
         } catch (Exception $e) {
             logError('Erreur d\'envoi email: ' . $e->getMessage());
@@ -229,23 +180,6 @@ class EmailManager {
      */
     public function getMessage() {
         return $this->message;
-    }
-
-    /**
-     * Ajouter une adresse au format "Name <email>" ou "email"
-     */
-    private function addAddressFromString($mail, $method, $address) {
-        if (strpos($address, '<') !== false) {
-            // Format: Name <email>
-            preg_match('/^(.*?)\s*<(.*)>$/', $address, $matches);
-            if (!empty($matches[2])) {
-                $mail->$method(trim($matches[2]), trim($matches[1]));
-            } else {
-                $mail->$method($address);
-            }
-        } else {
-            $mail->$method($address);
-        }
     }
 }
 
