@@ -153,13 +153,90 @@ class EmailManager {
             }
 
             // Envoyer l'email
+            // If PHPMailer is available and SMTP config exists, prefer SMTP
+            if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+                require_once __DIR__ . '/vendor/autoload.php';
+            }
+
+            if (class_exists('PHPMailer\\PHPMailer\\PHPMailer') && defined('SMTP_HOST')) {
+                try {
+                    $mail = new PHPMailer\\PHPMailer\\PHPMailer(true);
+
+                    // Use SMTP if credentials provided
+                    $useSmtp = defined('SMTP_USER') && SMTP_USER;
+                    if ($useSmtp) {
+                        $mail->isSMTP();
+                        $mail->Host = SMTP_HOST;
+                        $mail->Port = SMTP_PORT ?? 587;
+                        $mail->SMTPAuth = true;
+                        $mail->Username = SMTP_USER;
+                        $mail->Password = SMTP_PASS;
+                        if (defined('SMTP_SECURE') && in_array(strtolower(SMTP_SECURE), ['ssl','tls'])) {
+                            $mail->SMTPSecure = SMTP_SECURE;
+                        }
+                    }
+
+                    // From
+                    $mail->setFrom(FROM_MAIL, FROM_NAME);
+
+                    // To (parse possible "Name <email>" format)
+                    if (preg_match('/^(.*)\\s+<(.+)>$/', $this->to, $m)) {
+                        $mail->addAddress(trim($m[2]), trim($m[1]));
+                    } else {
+                        $mail->addAddress($this->to);
+                    }
+
+                    // Reply-To
+                    if ($this->replyTo) {
+                        if (preg_match('/^(.*)\\s+<(.+)>$/', $this->replyTo, $r)) {
+                            $mail->addReplyTo(trim($r[2]), trim($r[1]));
+                        } else {
+                            $mail->addReplyTo($this->replyTo);
+                        }
+                    }
+
+                    // CC / BCC
+                    foreach ($this->cc as $cc) {
+                        $mail->addCC($cc);
+                    }
+                    foreach ($this->bcc as $bcc) {
+                        $mail->addBCC($bcc);
+                    }
+
+                    // Attachments
+                    foreach ($this->attachments as $att) {
+                        $mail->addAttachment($att['path'], $att['name']);
+                    }
+
+                    // Content
+                    $mail->isHTML(true);
+                    $mail->CharSet = 'UTF-8';
+                    $mail->Subject = $this->subject;
+                    $mail->Body = $this->message;
+                    $mail->AltBody = strip_tags(str_replace(['<br>', '<br/>', '<br />'], "\n", $this->message));
+
+                    $mail->send();
+                    logSuccess('Email (SMTP) envoyé à: ' . $this->to);
+                    return true;
+                } catch (Exception $e) {
+                    // Continue to fallback to mail()
+                    logError('PHPMailer error: ' . $e->getMessage());
+                }
+            }
+
+            // Fallback to PHP mail()
+            // If attachments exist and PHPMailer not available, we refuse to attempt raw attachment assembly
+            if (!empty($this->attachments)) {
+                throw new Exception('Des pièces jointes sont présentes mais l\'envoi SMTP (PHPMailer) n\'est pas disponible');
+            }
+
             $result = mail($this->to, $this->subject, $this->message, $headers);
 
             if ($result) {
-                logSuccess('Email envoyé à: ' . $this->to);
+                logSuccess('Email envoyé via mail() à: ' . $this->to);
                 return true;
             } else {
-                throw new Exception('Erreur lors de l\'envoi de l\'email');
+                throw new Exception('Erreur lors de l\'envoi de l\'email via mail()');
             }
 
         } catch (Exception $e) {

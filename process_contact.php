@@ -73,6 +73,7 @@ try {
                ->setSubject('Confirmation de votre message - ' . SITE_NAME)
                ->loadTemplate('confirmation_email', [
                    'name' => $data['name'],
+                   'email' => $data['email'],
                    'subject' => $data['subject'],
                    'site_name' => SITE_NAME,
                    'contact_email' => EMAIL_CONTACT
