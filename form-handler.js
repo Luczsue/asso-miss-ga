@@ -35,9 +35,16 @@ async function handleFormSubmit(e) {
             body: formData
         });
 
-        const result = await response.json();
+        let result = null;
+        const text = await response.text();
+        try {
+            result = text ? JSON.parse(text) : null;
+        } catch (e) {
+            // Response not JSON (PHP fatal error or HTML) — keep text for diagnostics
+            result = null;
+        }
 
-        if (response.ok && result.success) {
+        if (response.ok && result && result.success) {
             // Succès
             showNotification('success', result.message);
             form.reset();
@@ -45,13 +52,24 @@ async function handleFormSubmit(e) {
             // Log succès
             console.log('Message envoyé avec succès');
         } else {
-            // Erreur
-            const errorMessage = result.errors ? 
-                result.errors.join('\n') : 
-                result.message;
+            // Erreur — construire un message utile
+            let errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
+
+            if (result && result.errors) {
+                errorMessage = result.errors.join('\n');
+            } else if (result && result.message) {
+                errorMessage = result.message;
+            } else if (!response.ok) {
+                errorMessage = 'Erreur serveur: ' + response.status + ' ' + response.statusText;
+                if (text) errorMessage += '\n' + text.substring(0, 1000); // preview
+            } else if (text) {
+                // Non-JSON response
+                errorMessage = 'Réponse inattendue du serveur. Voir la console pour plus de détails.';
+                console.error('Réponse non-JSON:', text);
+            }
+
             showNotification('error', errorMessage);
-            
-            console.error('Erreur:', result);
+            console.error('Erreur:', result || text || response.statusText);
         }
     } catch (error) {
         // Erreur réseau ou autre

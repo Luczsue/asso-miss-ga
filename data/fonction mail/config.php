@@ -4,44 +4,15 @@
  * Configurer les adresses email et les paramètres SMTP
  */
 
-// ===================== CONFIGURATION SMTP - MAILPIT LOCAL (LARAGON) =====================
-// Mailpit est inclus dans Laragon et disponible sur http://localhost:8025
-define('SMTP_HOST', '127.0.0.1'); // Localhost pour Mailpit
-define('SMTP_PORT', 1025); // Port Mailpit SMTP
-define('SMTP_USER', ''); // Mailpit ne nécessite pas d'authentification
-define('SMTP_PASS', ''); // Mailpit ne nécessite pas de mot de passe
-define('SMTP_SECURE', ''); // Pas de chiffrement pour Mailpit local
+// ===================== CONFIGURATION EMAIL =====================
+define('SMTP_HOST', 'smtp.gmail.com'); // ou votre serveur SMTP
+define('SMTP_PORT', 587); // 587 pour TLS, 465 pour SSL
+define('SMTP_USER', 'lucasmengue320@gmail.com'); // Votre adresse email
+define('SMTP_PASS', 'your_app_password_here'); // Votre mot de passe app (utiliser variables d'environnement en production)
 define('FROM_NAME', 'Association des Miss du Gabon');
-define('FROM_MAIL', 'noreply@missgarbon.ga'); // Adresse email d'expédition
-// Activer le debug PHPMailer (0 = off, 1 = client messages, 2 = client+server)
-define('SMTP_DEBUG', 2);
-
-// ===================== CONFIGURATION SMTP - GMAIL (DÉCOMMENTEZ POUR UTILISER) =====================
-// À utiliser après avoir généré un mot de passe d'application sur https://myaccount.google.com/apppasswords
-/*
-define('SMTP_HOST', 'smtp.gmail.com');
-define('SMTP_PORT', 587);
-define('SMTP_USER', 'your-email@gmail.com');
-define('SMTP_PASS', 'your-app-password-16-chars');
-define('SMTP_SECURE', 'tls');
-define('FROM_NAME', 'Association des Miss du Gabon');
-define('FROM_MAIL', 'your-email@gmail.com');
-*/
-
-// ===================== CONFIGURATION SMTP - MAILTRAP (DÉCOMMENTEZ POUR UTILISER) =====================
-// Créer un compte sur https://mailtrap.io et copier les identifiants SMTP
-/*
-define('SMTP_HOST', 'smtp.mailtrap.io');
-define('SMTP_PORT', 587);
-define('SMTP_USER', 'your-mailtrap-username');
-define('SMTP_PASS', 'your-mailtrap-password');
-define('SMTP_SECURE', 'tls');
-define('FROM_NAME', 'Association des Miss du Gabon');
-define('FROM_MAIL', 'noreply@missgarbon.ga');
-*/
+define('FROM_MAIL', 'lucasmengue320@gmail.com');
 
 // ===================== ADRESSES EMAIL =====================
-// Tous les messages des visiteurs seront envoyés à cette adresse
 define('EMAIL_CONTACT', 'lucasmengue320@gmail.com');
 define('EMAIL_SUPPORT', 'lucasmengue320@gmail.com');
 define('EMAIL_PARTNERSHIPS', 'lucasmengue320@gmail.com');
