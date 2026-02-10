@@ -1,0 +1,8 @@
+{
+  "name": "association/miss-gabon",
+  "description": "Site officiel de l’Association des Miss du Gabon",
+  "type": "project",
+  "require": {
+    "phpmailer/phpmailer": "^7.0"
+  }
+}

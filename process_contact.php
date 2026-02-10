@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /**
  * Traitement du formulaire de contact
@@ -118,3 +119,5 @@ try {
 exit;
 
 ?>
+=======
+>>>>>>> dede7775fb97e582f72ce39277904f65451ef448
