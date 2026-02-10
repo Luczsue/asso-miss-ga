@@ -160,7 +160,7 @@ class EmailManager {
 
             if (class_exists('PHPMailer\\PHPMailer\\PHPMailer') && defined('SMTP_HOST')) {
                 try {
-                    $mail = new PHPMailer\\PHPMailer\\PHPMailer(true);
+                    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
 
                     // Use SMTP if credentials provided
                     $useSmtp = defined('SMTP_USER') && SMTP_USER;
